@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: TX Tileset Wall_7
+  m_Name: TX Tileset Wall 1_3 1
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 1186194912, guid: f3cf837fce888434ba5273321dbf0d79, type: 3}
+  m_Sprite: {fileID: -1427199537, guid: 1a87f9f4e1df2174cabb64203151d6d1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
