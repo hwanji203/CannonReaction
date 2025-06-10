@@ -1,67 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &664936662665565306
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6047201949714995566}
-  m_Layer: 6
-  m_Name: SmokePar
-  m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6047201949714995566
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 664936662665565306}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2053509498135128857}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1877127640302965211
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4243965182228708674}
-  m_Layer: 6
-  m_Name: FirePar
-  m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4243965182228708674
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1877127640302965211}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2053509498135128857}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2552904017849388411
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,8 +318,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3538dbebb56ad35469872b6c0754b0a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 3952705875105274765, guid: dc71cf90004fa7b4697e11e102cad6ed, type: 3}
+  bulletPrefabs:
+  - {fileID: 3952705875105274765, guid: dc71cf90004fa7b4697e11e102cad6ed, type: 3}
   fireSpot: {fileID: 7561323328087325733}
+  bulletPoolPa: {fileID: 0}
 --- !u!114 &4363666452211501566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,8 +335,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parPoolPa: {fileID: 0}
-  smokePar: {fileID: 4575344998331091747, guid: fc9b5310db2b90249868661bfac3eea5, type: 3}
-  firePar: {fileID: 569224885317735349, guid: b551d6d9b4f3fd84e9ca9982788e4435, type: 3}
+  smokePar: {fileID: 5887681091051648505, guid: fc9b5310db2b90249868661bfac3eea5, type: 3}
+  firePar: {fileID: 4335827239589626423, guid: b551d6d9b4f3fd84e9ca9982788e4435, type: 3}
   shootAdClip: {fileID: 8300000, guid: 7f8e8cd76791e4144830a899ab7250e3, type: 3}
 --- !u!95 &6991789277176166552
 Animator:
@@ -445,7 +385,7 @@ GameObject:
   m_Layer: 6
   m_Name: ParticlePo
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -457,12 +397,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7618705203214368592}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 6047201949714995566}
-  - {fileID: 4243965182228708674}
+  m_Children: []
   m_Father: {fileID: 6802955560267839701}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

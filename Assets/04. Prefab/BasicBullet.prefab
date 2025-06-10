@@ -12,10 +12,9 @@ GameObject:
   - component: {fileID: 9011886277659654478}
   - component: {fileID: 4084108317066494797}
   - component: {fileID: 5632197150182658421}
-  - component: {fileID: 8950222615714368812}
-  - component: {fileID: -8436115223506462914}
+  - component: {fileID: 8738206802196277069}
   m_Layer: 7
-  m_Name: Bullet
+  m_Name: BasicBullet
   m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -154,7 +153,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.73
---- !u!114 &8950222615714368812
+--- !u!114 &8738206802196277069
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -163,19 +162,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3952705875105274765}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91ce7a45292782740b7e67975166d2a1, type: 3}
+  m_Script: {fileID: 11500000, guid: d217eda2b829ab14681debf5869a3ead, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
---- !u!114 &-8436115223506462914
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3952705875105274765}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 651283a5bccfa2841824e887008eca1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
