@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ShootSFX : MonoBehaviour
 {
-    private Transform parPoolPa;
+    [SerializeField] private Transform parPoolPa;
     [SerializeField] private ParticleSystem smokePar;
     [SerializeField] private ParticleSystem firePar;
     private ParticleSystem[] smokeParPool;
@@ -20,17 +20,17 @@ public class ShootSFX : MonoBehaviour
     {
         audioSo = GetComponent<AudioSource>();
         ani = GetComponent<Animator>();
+        parPoolPa = GameObject.Find("ParPoolPa").transform;
+        PoolMake(parPoolPa, smokePar, ref smokeParPool, parPoolSize);
+        PoolMake(parPoolPa, firePar, ref fireParPool, parPoolSize);
+        player = GetComponent<Player>();
     }
 
     void Start()
     {
-        player = GetComponent<Player>();
         player.shootEvnet += ParPlay;
         player.shootEvnet += AudioPlay;
 
-        parPoolPa = GameObject.Find("ParPoolPa").transform;
-        PoolMake(parPoolPa, smokePar, ref smokeParPool, parPoolSize);
-        PoolMake(parPoolPa, firePar, ref fireParPool, parPoolSize);
     }
 
     public void AudioPlay()
@@ -59,6 +59,12 @@ public class ShootSFX : MonoBehaviour
             }
         }
     }
+
+    private void AniPlay()
+    {
+        
+    }
+
     private void PoolMake(Transform father, ParticleSystem particle, ref ParticleSystem[] parPool, int size)
     {
         parPool = new ParticleSystem[size];

@@ -10,7 +10,11 @@ public class DeadZone : MonoBehaviour
     private void Awake()
     {
         real = GetComponent<CircleCollider2D>().radius;
-        endManager = GameObject.FindAnyObjectByType<EndManager>();
+    }
+
+    private void Start()
+    {
+        endManager = EndManager.Instance;
     }
     private void Update()
     {
@@ -18,8 +22,11 @@ public class DeadZone : MonoBehaviour
     }
     private void Del()
     {
-        if (transform.position.x + real < endManager.LeftEnd || transform.position.y + real < endManager.LeftEnd ||
-            transform.position.x - real > endManager.RightEnd || transform.position.y - real > endManager.RightEnd)
+        Vector2 pos = transform.position;
+        float left = endManager.LeftEnd;
+        float right = endManager.RightEnd;
+
+        if (pos.x + real < left || pos.y + real < left || pos.x - real > right || pos.y - real > right)
         {
             gameObject.SetActive(false);
         }

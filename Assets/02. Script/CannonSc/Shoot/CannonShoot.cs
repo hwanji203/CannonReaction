@@ -14,13 +14,13 @@ public class CannonShoot : MonoBehaviour
     private void Awake()
     {
         FireSpot = GameObject.Find("FireSpotR").transform;
+        bulletPoolPa = GameObject.Find("BulletPool").transform;
     }
     void Start()
     {
         player = GetComponent<Player>();
         player.shootEvnet += Fire;
 
-        bulletPoolPa = GameObject.Find("BulletPool").transform;
         bulletPool = new GameObject[bulletPoolSize];
         for (int i = 0; i < bulletPoolSize; i++)
         {

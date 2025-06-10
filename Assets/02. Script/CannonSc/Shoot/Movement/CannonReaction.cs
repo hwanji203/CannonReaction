@@ -13,12 +13,11 @@ public class CannonReaction : MonoBehaviour
     private void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
+        player = GetComponent<Player>();
     }
     void Start()
     {
-        player = GetComponent<Player>();
         rigid.gravityScale = myGravityScale;
-
         player.shootEvnet += Reaction;
     }
 
@@ -27,5 +26,10 @@ public class CannonReaction : MonoBehaviour
         reactionDir = new Vector2(Mathf.Cos((transform.eulerAngles.z - 90) * Mathf.Deg2Rad), Mathf.Sin((transform.eulerAngles.z - 90) * Mathf.Deg2Rad));
         rigid.linearVelocity /= 3;
         rigid.AddForce(-reactionDir * reactionPower, ForceMode2D.Impulse);
+    }
+
+    private void OnDestroy()
+    {
+        player.shootEvnet -= Reaction;
     }
 }
