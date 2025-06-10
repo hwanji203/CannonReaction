@@ -6,7 +6,16 @@ public class LiveZone : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent<Bullet>(out Bullet bullet))
         {
-            bullet.InZone = true;
+            if (!bullet.SettingClear)
+            {
+                bullet.SettingClear = true;
+                bullet.gameObject.SetActive(false);
+            }
+            else
+            {
+                bullet.Ready = true;
+                bullet.InZone = true;
+            }
         }
     }
 

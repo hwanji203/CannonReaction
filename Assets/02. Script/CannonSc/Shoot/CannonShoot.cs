@@ -28,8 +28,6 @@ public class CannonShoot : MonoBehaviour
             for (int j = 0; j < bulletPoolSize; j++)
             {
                 bullets[j] = Instantiate(bulletPrefabs[i]);
-                bullets[j].GetComponent<Bullet>().SettingClear = true;
-                bullets[j].SetActive(false);
             }
             bulletPools.Add(bulletPrefabs[i].name, bullets);
         }

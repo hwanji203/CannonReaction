@@ -10,6 +10,7 @@ public abstract class Bullet : MonoBehaviour
 
     public bool InZone = false;
     public bool SettingClear = false;
+    public bool Ready = false;
     private void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
@@ -17,7 +18,10 @@ public abstract class Bullet : MonoBehaviour
 
     private void Update()
     {
-        if (!InZone && SettingClear) { gameObject.SetActive(false); }
+        if (!InZone && !Ready)
+        {
+            gameObject.SetActive(false); 
+        }
     }
 
     private void OnEnable()
