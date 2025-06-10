@@ -3,21 +3,16 @@ using UnityEngine;
 public class CannonShoot : MonoBehaviour
 {
     [SerializeField] private GameObject bulletPrefab;
-    public Transform FireSpot { get; private set; }
+    [SerializeField] private Transform fireSpot;
 
-    private GameObject[] bulletPool;
+    [SerializeField] private GameObject[] bulletPool;
+    [SerializeField] private Transform bulletPoolPa;
     private readonly int bulletPoolSize = 5;
-    private Transform bulletPoolPa;
 
     private Player player;
-
-    private void Awake()
-    {
-        FireSpot = GameObject.Find("FireSpotR").transform;
-        bulletPoolPa = GameObject.Find("BulletPool").transform;
-    }
     void Start()
     {
+
         player = GetComponent<Player>();
         player.shootEvnet += Fire;
 
@@ -27,7 +22,6 @@ public class CannonShoot : MonoBehaviour
             bulletPool[i] = Instantiate(bulletPrefab, bulletPoolPa);
             bulletPool[i].gameObject.SetActive(false);
         }
-
     }
 
     private void Fire()
@@ -37,8 +31,9 @@ public class CannonShoot : MonoBehaviour
             GameObject bullet = bulletPool[i];
             if (!bullet.activeSelf)
             {
+                bullet.transform.position = fireSpot.position;
+                bullet.GetComponent<Bullet>().zValue = transform.eulerAngles.z -90;
                 bullet.SetActive(true);
-                bullet.transform.position = FireSpot.position;
                 break;
             }
         }

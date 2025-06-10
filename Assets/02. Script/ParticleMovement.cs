@@ -2,33 +2,38 @@ using UnityEngine;
 
 public class ParticleMovement : MonoBehaviour
 {
-    [SerializeField] private string paName;
-    private Transform paTransform;
+    private Transform particlePo;
+
     private ParticleSystem myPar;
 
-    private void Awake()
-    {
-        paTransform = GameObject.Find(paName).GetComponent<Transform>();
-        myPar = GetComponent<ParticleSystem>();
-        gameObject.SetActive(false);
-    }
+    public bool making = true;
+    public bool endSetting = false;
+
     void Update()
     {
-        if (myPar.isPlaying)
+        if (endSetting && myPar.isPlaying)
         {
-            transform.rotation = paTransform.rotation;
-            transform.position = paTransform.position;
+            transform.position = particlePo.position;
         }
-        if (!myPar.isPlaying)
+        else
         {
             gameObject.SetActive(false);
         }
     }
 
+    public void Setting(Transform parPo)
+    {
+        myPar = GetComponent<ParticleSystem>();
+        particlePo = parPo;
+        gameObject.SetActive(false);
+        endSetting = true;
+    }
     private void OnEnable()
     {
-        transform.rotation = paTransform.rotation;
-        transform.position = paTransform.position;
-        myPar.Play();
+        if (!making)
+        {
+            myPar.Play();
+        }
+        making = false;
     }
 }

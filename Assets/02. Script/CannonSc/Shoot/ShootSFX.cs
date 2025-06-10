@@ -3,34 +3,31 @@ using UnityEngine;
 public class ShootSFX : MonoBehaviour
 {
     [SerializeField] private Transform parPoolPa;
-    [SerializeField] private ParticleSystem smokePar;
-    [SerializeField] private ParticleSystem firePar;
-    private ParticleSystem[] smokeParPool;
-    private ParticleSystem[] fireParPool;
-    private readonly int parPoolSize = 5;
-
-    private Animator ani;
-    private int shootHash = Animator.StringToHash("Shoot");
-
-    [SerializeField] private AudioSource audioSo;
+    [SerializeField] private GameObject smokePar;
+    [SerializeField] private GameObject firePar;
+    private GameObject[] smokeParPool;
+    private GameObject[] fireParPool;
+    private readonly int parPoolSize = 8;
     [SerializeField] private AudioClip shootAdClip;
+
+    private Transform particlePo;
+
+    private GameObject parGameO;
 
     private Player player;
     private void Awake()
     {
-        audioSo = GetComponent<AudioSource>();
-        ani = GetComponent<Animator>();
-        parPoolPa = GameObject.Find("ParPoolPa").transform;
-        PoolMake(parPoolPa, smokePar, ref smokeParPool, parPoolSize);
-        PoolMake(parPoolPa, firePar, ref fireParPool, parPoolSize);
+        particlePo = transform.Find("ParticlePo");
+        PoolMake(parPoolPa, smokePar, out smokeParPool, parPoolSize);
+        PoolMake(parPoolPa, firePar, out fireParPool, parPoolSize);
         player = GetComponent<Player>();
+
     }
 
     void Start()
     {
         player.shootEvnet += ParPlay;
         player.shootEvnet += AudioPlay;
-
     }
 
     public void AudioPlay()
@@ -42,35 +39,35 @@ public class ShootSFX : MonoBehaviour
     {
         for (int i = 0; i < fireParPool.Length; i++)
         {
-            GameObject par = fireParPool[i].gameObject;
-            if (!par.activeSelf)
+            GameObject particle = fireParPool[i];
+            if (!particle.activeSelf)
             {
-                par.gameObject.SetActive(true);
+                parGameO = particle.gameObject;
+                parGameO.transform.position = gameObject.transform.position;
+                parGameO.SetActive(true);
                 break;
             }
         }
         for (int i = 0; i < smokeParPool.Length; i++)
         {
-            GameObject par = smokeParPool[i].gameObject;
-            if (!par.activeSelf)
+            GameObject particle = smokeParPool[i];
+            if (!particle.activeSelf)
             {
-                par.gameObject.SetActive(true);
+                parGameO = particle.gameObject;
+                parGameO.transform.position = gameObject.transform.position;
+                parGameO.SetActive(true);
                 break;
             }
         }
     }
 
-    private void AniPlay()
+    private void PoolMake(Transform father, GameObject particle, out GameObject[] parPool, int size)
     {
-        
-    }
-
-    private void PoolMake(Transform father, ParticleSystem particle, ref ParticleSystem[] parPool, int size)
-    {
-        parPool = new ParticleSystem[size];
-        for (int i = 0; i < size; i++)
+        parPool = new GameObject[size];
+        for (int i = 0; i < size; i++)//:P
         {
             parPool[i] = Instantiate(particle, father);
+            parPool[i].GetComponent<ParticleMovement>().Setting(particlePo);
         }
     }
 }
