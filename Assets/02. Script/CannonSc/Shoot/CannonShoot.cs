@@ -9,7 +9,7 @@ public class CannonShoot : MonoBehaviour
     [SerializeField] private Transform bulletPoolPa;
     private readonly int bulletPoolSize = 5;
 
-    private Player player;
+    private CannonEvent player;
 
     private string bulletType = "BasicBullet";
 
@@ -18,7 +18,7 @@ public class CannonShoot : MonoBehaviour
     void Start()
     {
 
-        player = GetComponent<Player>();
+        player = GetComponent<CannonEvent>();
         player.shootEvnet += Fire;
 
         bulletPools = new Dictionary<string, GameObject[]>();

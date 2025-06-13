@@ -5,8 +5,8 @@ TagManager:
   serializedVersion: 3
   tags:
   - Cannon
-  - Ball
   - Slime
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -18,7 +18,7 @@ TagManager:
   - Camera
   - Cannon
   - Slime
-  - 
+  - Bullet
   - 
   - 
   - 

@@ -10,6 +10,8 @@ public abstract class Bullet : MonoBehaviour
     private Vector3 dir;
 
     private BoxCollider2D allowedArea;
+
+    [field: SerializeField] public int bulletDamage { get; private set; } = 1;
     private void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
@@ -27,6 +29,4 @@ public abstract class Bullet : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
-
-    public abstract void TakeDamage(GameObject enemy);
 }

@@ -14,13 +14,13 @@ public class ShootSFX : MonoBehaviour
 
     private GameObject parGameO;
 
-    private Player player;
+    private CannonEvent player;
     private void Awake()
     {
         particlePo = transform.Find("ParticlePo");
         PoolMake(parPoolPa, smokePar, out smokeParPool, parPoolSize);
         PoolMake(parPoolPa, firePar, out fireParPool, parPoolSize);
-        player = GetComponent<Player>();
+        player = GetComponent<CannonEvent>();
 
     }
 

@@ -8,17 +8,17 @@ public class CannonReaction : MonoBehaviour
     private Rigidbody2D rigid;
     private Vector2 reactionDir;
 
-    private Player player;
+    private CannonEvent cannon;
 
     private void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
-        player = GetComponent<Player>();
+        cannon = GetComponent<CannonEvent>();
     }
     void Start()
     {
         rigid.gravityScale = myGravityScale;
-        player.shootEvnet += Reaction;
+        cannon.shootEvnet += Reaction;
     }
 
     private void Reaction()
@@ -30,6 +30,6 @@ public class CannonReaction : MonoBehaviour
 
     private void OnDestroy()
     {
-        player.shootEvnet -= Reaction;
+        cannon.shootEvnet -= Reaction;
     }
 }

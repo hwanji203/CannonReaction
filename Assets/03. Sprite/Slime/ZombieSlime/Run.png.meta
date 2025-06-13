@@ -1,0 +1,493 @@
+fileFormatVersion: 2
+guid: d43647ef606ba044089186b2f45ee6e8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7451515472606999234
+    second: Slime2_Run_body_0
+  - first:
+      213: -6115362594606828985
+    second: Slime2_Run_body_1
+  - first:
+      213: 3989793693387879533
+    second: Slime2_Run_body_2
+  - first:
+      213: 4554155688365633113
+    second: Slime2_Run_body_3
+  - first:
+      213: -1931593585865630331
+    second: Slime2_Run_body_4
+  - first:
+      213: -1988151126523344212
+    second: Slime2_Run_body_5
+  - first:
+      213: -5918094257507062094
+    second: Slime2_Run_body_6
+  - first:
+      213: -1165829741925421925
+    second: Slime2_Run_body_7
+  - first:
+      213: 3084967711213339433
+    second: Slime2_Run_body_8
+  - first:
+      213: 9173259885635852941
+    second: Slime2_Run_body_9
+  - first:
+      213: -4128974140869991269
+    second: Slime2_Run_body_10
+  - first:
+      213: -2594256482717381748
+    second: Slime2_Run_body_11
+  - first:
+      213: -2142940940562516514
+    second: Slime2_Run_body_12
+  - first:
+      213: -8759840303573257203
+    second: Slime2_Run_body_13
+  - first:
+      213: 8099150347448095499
+    second: Slime2_Run_body_14
+  - first:
+      213: -5966504295187734426
+    second: Slime2_Run_body_15
+  - first:
+      213: -4708906920983978315
+    second: Slime2_Run_body_16
+  - first:
+      213: 1203241186804001769
+    second: Slime2_Run_body_17
+  - first:
+      213: -242902245131595440
+    second: Slime2_Run_body_18
+  - first:
+      213: 2604159926853022790
+    second: Slime2_Run_body_19
+  - first:
+      213: -439253609968978860
+    second: Slime2_Run_body_20
+  - first:
+      213: -8302311100382766442
+    second: Slime2_Run_body_21
+  - first:
+      213: 8554772265383006566
+    second: Slime2_Run_body_22
+  - first:
+      213: 2831198394377808070
+    second: Slime2_Run_body_23
+  - first:
+      213: 6080630418738219381
+    second: Slime2_Run_body_24
+  - first:
+      213: 7334398949058673273
+    second: Slime2_Run_body_25
+  - first:
+      213: 2347594367273782965
+    second: Slime2_Run_body_26
+  - first:
+      213: 1921445099717854610
+    second: Slime2_Run_body_27
+  - first:
+      213: -8844921250078896828
+    second: Slime2_Run_body_28
+  - first:
+      213: 3172849080146518353
+    second: Slime2_Run_body_29
+  - first:
+      213: 8347534632240510794
+    second: Slime2_Run_body_30
+  - first:
+      213: 7109713044906140839
+    second: Slime2_Run_body_31
+  - first:
+      213: 6896706440446434663
+    second: Slime2_Run_body_32
+  - first:
+      213: 5635507302324358775
+    second: Slime2_Run_body_33
+  - first:
+      213: 377740860782362223
+    second: Slime2_Run_body_34
+  - first:
+      213: -2434951213853095968
+    second: Slime2_Run_body_35
+  - first:
+      213: -4882488165582648953
+    second: Slime2_Run_body_36
+  - first:
+      213: 8607237984432496556
+    second: Slime2_Run_body_37
+  - first:
+      213: -4285603050846657147
+    second: Slime2_Run_body_38
+  - first:
+      213: 9212502558202661398
+    second: Slime2_Run_body_39
+  - first:
+      213: -143403584546219114
+    second: Slime2_Run_body_40
+  - first:
+      213: -8997321487576594783
+    second: Slime2_Run_body_41
+  - first:
+      213: 2639527530095752036
+    second: Slime2_Run_body_42
+  - first:
+      213: -178511774095145554
+    second: Slime2_Run_body_43
+  - first:
+      213: 8046206150815115330
+    second: Slime2_Run_body_44
+  - first:
+      213: 6448483428318037672
+    second: Slime2_Run_body_45
+  - first:
+      213: -751474639274513638
+    second: Slime2_Run_body_46
+  - first:
+      213: 3120667458978005722
+    second: Slime2_Run_body_47
+  - first:
+      213: -3892707193953568784
+    second: Slime2_Run_body_48
+  - first:
+      213: 4913240627496594706
+    second: Slime2_Run_body_49
+  - first:
+      213: 1199499183517479113
+    second: Slime2_Run_body_50
+  - first:
+      213: 7278184900713233935
+    second: Slime2_Run_body_51
+  - first:
+      213: -3960540288606839383
+    second: Slime2_Run_body_52
+  - first:
+      213: -3923220140960214297
+    second: Slime2_Run_body_53
+  - first:
+      213: 6201926334534491725
+    second: Slime2_Run_body_54
+  - first:
+      213: 3525850445502161060
+    second: Slime2_Run_body_55
+  - first:
+      213: -1731101126040557125
+    second: Slime2_Run_body_56
+  - first:
+      213: -5700975570033809921
+    second: Slime2_Run_body_57
+  - first:
+      213: -2891767572219369137
+    second: Slime2_Run_body_58
+  - first:
+      213: 4768778835810610395
+    second: Slime2_Run_body_59
+  - first:
+      213: 4579429861913083859
+    second: Slime2_Run_body_60
+  - first:
+      213: 5539937099010302069
+    second: Slime2_Run_body_61
+  - first:
+      213: 7665633686387196423
+    second: Slime2_Run_body_62
+  - first:
+      213: 6051720870110190797
+    second: Slime2_Run_body_63
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 8
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Run_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47708c81f56bc634b8f14da8f5fb10c1
+      internalID: -1094000965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81836c4d137990b4d925be36ee233914
+      internalID: -1954674522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e44ecec7cb143245b4b3bd302ae9f9d
+      internalID: -1982379364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87de2851862a9154aa7c022039fa39f7
+      internalID: 409456321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3fd23fa72c129641a95e212a10f5ed8
+      internalID: 563722433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9ad02066b8636549b1191694d9861e5
+      internalID: 1096792187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f488677db58a3543bc4b58867966352
+      internalID: -45832270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9820a9b37907f54d8aa979b28d8d098
+      internalID: 875841035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 3c6e8f2cf617b5041b47292b6d7ede28
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Run_0: -1094000965
+      Run_1: -1954674522
+      Run_2: -1982379364
+      Run_3: 409456321
+      Run_4: 563722433
+      Run_5: 1096792187
+      Run_6: -45832270
+      Run_7: 875841035
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
