@@ -21,10 +21,10 @@ public class SlimeSpawnManager : MonoBehaviour
     private void Awake()
     {
         slimeDic = new Dictionary<string, GameObject[]>();
+        SlimePoolMake();
     }
     private void Start()
     {
-        SlimePoolMake();
         selectSpawnPoint = Random.Range(0, spawnPoints.Length);
         selectedSpawnPoint = selectSpawnPoint;
     }

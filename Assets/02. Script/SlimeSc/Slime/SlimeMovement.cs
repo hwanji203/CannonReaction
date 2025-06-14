@@ -47,31 +47,29 @@ public class SlimeMovement : MonoBehaviour
 
     public void Attack()
     {
-        Debug.Log("슬라임 공격 시작");
         rb.linearVelocity = Vector2.zero;
         animator.SetTrigger(attackHash);
     }
 
     public void AttackEnd()
     {
-        Debug.Log("슬라임 공격 끝");
         gameObject.SetActive(false);
     }
 
     public void Hit()
     {
-        Debug.Log("슬라임 맞음");
         rb.linearVelocity = -Vector2.up;
         animator.SetTrigger(hitHash);
     }
     public void Dead()
     {
-        Debug.Log("슬라임 죽음");
+        rb.linearVelocity = Vector2.zero;
         animator.SetTrigger(deadHash);
     }
     public void DeadEnd()
     {
-        sSE.SpreadExp(transform.position);
+        sSE.SpreadExp();
+        gameObject.SetActive(false);
     }
 
     //public void SlimeMove()

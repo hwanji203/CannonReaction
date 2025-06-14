@@ -17,13 +17,11 @@ public class SlimeEvent : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent<CannonEvent>(out CannonEvent cannon))
         {
-            Debug.Log("슬라임이 캐논 감지");
-            cannon.TakeDamage();
+            cannon.GiveDamage();
             ApplyDamageEvent?.Invoke();
         }
         else if (collision.gameObject.TryGetComponent<Bullet>(out Bullet bullet))
         {
-            Debug.Log("슬라임이 불렛 감지");
             healthSystem.TakeDamage(bullet.bulletDamage);
             bullet.gameObject.SetActive(false);
         }

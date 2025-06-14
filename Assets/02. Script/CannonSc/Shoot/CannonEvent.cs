@@ -35,7 +35,7 @@ public class CannonEvent : MonoBehaviour
         }
     }
 
-    public void TakeDamage()
+    public void GiveDamage()
     {
         if (takeDamageCoroutine == null)
         {

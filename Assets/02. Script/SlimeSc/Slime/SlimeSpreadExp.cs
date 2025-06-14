@@ -3,21 +3,34 @@ using UnityEngine;
 
 public class SlimeSpreadExp : MonoBehaviour
 {
-    [SerializeField] private GameObject[] expPrefabs;
-    [SerializeField] private Transform poolTran;
+    [SerializeField] private GameObject expPrefab;
+    private Transform poolTran;
     private Stack<GameObject> expPool;
-    public void SpreadExp(Vector2 position)
+
+    [SerializeField] private int maxSpreadExp = 3;
+
+    private void Awake()
     {
-        if (expPool.TryPop(out GameObject exp))
+        poolTran = GameObject.Find("ExpPool").transform;
+
+        expPool = new Stack<GameObject>();
+    }
+
+    public void SpreadExp()
+    {
+        for (int i = 0; i <  Random.Range(1, maxSpreadExp); i++)
         {
-            exp.transform.position = position;
-            exp.SetActive(true);
-        }
-        else
-        {
-            exp = Instantiate(expPrefabs[Random.Range(0, expPrefabs.Length)], poolTran);
-            exp.transform.position = position;
-            expPool.Push(exp);
+            if (expPool.TryPop(out GameObject exp)) 
+            {
+                exp.transform.position = transform.position;
+                exp.SetActive(true);
+            }
+            else
+            {
+                exp = Instantiate(expPrefab, poolTran);
+                exp.transform.position = transform.position;
+                exp.SetActive(true);
+            }
         }
     }
 }

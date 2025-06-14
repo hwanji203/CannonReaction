@@ -311,5 +311,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0a2d8bde9bcc4243a78016655816ed0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  expPrefabs: []
+  expPrefab: {fileID: 8925146650997168988, guid: 3beeeb6c672db4049b6cae6600c48938, type: 3}
   poolTran: {fileID: 0}
+  maxSpreadExp: 3

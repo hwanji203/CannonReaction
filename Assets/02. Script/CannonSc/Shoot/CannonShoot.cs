@@ -13,26 +13,36 @@ public class CannonShoot : MonoBehaviour
 
     private string bulletType = "BasicBullet";
 
-    Dictionary<string, GameObject[]> bulletPools;
+    private Dictionary<string, GameObject[]> bulletPools;
 
-    void Start()
+    private Bullet bulletSc;
+    private void Awake()
     {
-
         player = GetComponent<CannonEvent>();
-        player.shootEvnet += Fire;
 
         bulletPools = new Dictionary<string, GameObject[]>();
 
+        BulletPoolMake();
+    }
+
+    private void BulletPoolMake()
+    {
         for (int i = 0; i < bulletPrefabs.Length; i++)
         {
             GameObject[] bullets = new GameObject[bulletPoolSize];
             for (int j = 0; j < bulletPoolSize; j++)
             {
                 bullets[j] = Instantiate(bulletPrefabs[i], bulletPoolPa);
-                bullets[j].gameObject.SetActive(false);
             }
             bulletPools.Add(bulletPrefabs[i].name, bullets);
         }
+    }
+
+    void Start()
+    {
+
+        player.shootEvnet += Fire;
+
     }
 
     private void Fire()
@@ -42,8 +52,8 @@ public class CannonShoot : MonoBehaviour
             GameObject bullet = bulletPools[bulletType][i];
             if (!bullet.activeSelf)
             {
+                bulletSc = bullet.GetComponent<Bullet>();
                 bullet.transform.position = fireSpot.position;
-                Bullet bulletSc = bullet.GetComponent<Bullet>();
                 bulletSc.zValue = transform.eulerAngles.z - 90;
                 bullet.SetActive(true);
                 break;

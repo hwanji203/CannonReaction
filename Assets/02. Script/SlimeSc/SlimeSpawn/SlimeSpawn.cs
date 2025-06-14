@@ -20,10 +20,13 @@ public class SlimeSpawn : MonoBehaviour
         slimePrefab.transform.position = new Vector2(Random.Range(spawnAreaLeft, spawnAreaRight), transform.position.y);
     }
 
-    private void OnDrawGizmos()
+#if UNITY_EDITOR
+    private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
-        Gizmos.DrawLine(new Vector2(transform.position.x - areaSize /2, transform.position.y),
+        Gizmos.DrawLine(new Vector2(transform.position.x - areaSize / 2, transform.position.y),
             new Vector2(transform.position.x + areaSize / 2, transform.position.y));
     }
+#endif
+
 }

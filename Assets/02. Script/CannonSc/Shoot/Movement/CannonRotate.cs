@@ -9,7 +9,7 @@ public class CannonRotate : MonoBehaviour
     private float moveX;
 
     private CannonEvent cannon;
-    private void Start()
+    private void Awake()
     {
         cannon = GetComponent<CannonEvent>();
     }
