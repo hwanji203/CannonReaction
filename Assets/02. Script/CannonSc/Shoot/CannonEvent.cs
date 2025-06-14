@@ -21,6 +21,8 @@ public class CannonEvent : MonoBehaviour
 
     public bool IsShooting { get; private set; } = false;
 
+    public bool CanShooting { get; set; } = true;
+
     private void Awake()
     {
         ani = GetComponent<Animator>();
@@ -28,14 +30,13 @@ public class CannonEvent : MonoBehaviour
 
     private void Update()
     {
-        if (Keyboard.current.spaceKey.wasPressedThisFrame && shootCoroutine == null)
+        if (Keyboard.current.spaceKey.wasPressedThisFrame && shootCoroutine == null && CanShooting)
         {
             IsShooting = true;
             shootCoroutine = StartCoroutine(Shoot());
         }
     }
-
-    public void GiveDamage()
+    public void TakeDamage()
     {
         if (takeDamageCoroutine == null)
         {

@@ -11,7 +11,7 @@ public class CannonShoot : MonoBehaviour
 
     private CannonEvent player;
 
-    private string bulletType = "BasicBullet";
+    private string bulletKey;
 
     private Dictionary<string, GameObject[]> bulletPools;
 
@@ -23,6 +23,8 @@ public class CannonShoot : MonoBehaviour
         bulletPools = new Dictionary<string, GameObject[]>();
 
         BulletPoolMake();
+
+        bulletKey = bulletPrefabs[0].name;
     }
 
     private void BulletPoolMake()
@@ -49,7 +51,7 @@ public class CannonShoot : MonoBehaviour
     {
         for (int i = 0; i < bulletPoolSize; i++)
         {
-            GameObject bullet = bulletPools[bulletType][i];
+            GameObject bullet = bulletPools[bulletKey][i];
             if (!bullet.activeSelf)
             {
                 bulletSc = bullet.GetComponent<Bullet>();

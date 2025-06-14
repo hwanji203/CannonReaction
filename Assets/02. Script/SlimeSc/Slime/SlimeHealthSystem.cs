@@ -7,12 +7,11 @@ public class SlimeHealthSystem : MonoBehaviour
     [SerializeField] private int maxHealth = 10;
     private int hp;
 
-    private SlimeMovement slimeMove;
+    private SlimeAnimation slimeMove;
 
     private void Awake()
     {
-        hp = maxHealth;
-        slimeMove = GetComponent<SlimeMovement>();
+        slimeMove = GetComponent<SlimeAnimation>();
     }
     public void TakeDamage(int damage)
     {
@@ -25,5 +24,10 @@ public class SlimeHealthSystem : MonoBehaviour
             hp -= damage;
             slimeMove.Hit();
         }
+    }
+
+    public void ResetHP()
+    {
+        hp = maxHealth;
     }
 }

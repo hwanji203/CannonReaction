@@ -10,9 +10,9 @@ public class SpreadExp : MonoBehaviour
     [SerializeField] private int maxSpreadExp = 3;
     private void Awake()
     {
+        expPool = new Stack<GameObject>();
         poolTran = GameObject.Find("ExpPool").transform;
 
-        expPool = new Stack<GameObject>();
     }
 
     public void Spread(Vector2 slimePosition)
@@ -21,17 +21,14 @@ public class SpreadExp : MonoBehaviour
         {
             if (expPool.TryPop(out GameObject exp)) 
             {
-                Debug.Log("pop 성공");
                 exp.transform.position = slimePosition;
-                exp.SetActive(true);
             }
             else
             {
-                Debug.Log("pop 실패");
                 exp = Instantiate(expPrefab, poolTran);
                 exp.transform.position = slimePosition;
-                exp.SetActive(true);
             }
+            exp.SetActive(true);
         }
     }
 }

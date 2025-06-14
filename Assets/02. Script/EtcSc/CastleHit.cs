@@ -4,7 +4,7 @@ public class CastleHit : MonoBehaviour
 {
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.TryGetComponent<SlimeMovement>(out SlimeMovement slime))
+        if (collision.gameObject.TryGetComponent<SlimeAnimation>(out SlimeAnimation slime))
         {
             slime.Attack();
         }

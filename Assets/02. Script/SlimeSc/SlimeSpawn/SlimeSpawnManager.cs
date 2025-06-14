@@ -10,37 +10,27 @@ public class SlimeSpawnManager : MonoBehaviour
     Dictionary<string, GameObject[]> slimeDic;
     private int poolSize = 30;
 
-    private float spawnCoolFirst = 1;
-    private float spawnCoolSecond = 2;
-    private Coroutine spawnCoroutine;
+    [SerializeField] private float spawnCoolFirst = 1;
+    [SerializeField] private float spawnCoolSecond = 2;
 
     [SerializeField] SlimeSpawn[] spawnPoints;
     private int selectSpawnPoint;
     private int selectedSpawnPoint;
 
-    private SpreadExp spreadExp;
+    private string slimeKey;
 
     private void Awake()
     {
-        spreadExp = GameObject.Find("ExpManager").GetComponent<SpreadExp>();
         slimeDic = new Dictionary<string, GameObject[]>();
         SlimePoolMake();
 
+        slimeKey = slimePrefabs[0].name;
     }
+
     private void Start()
     {
-        selectSpawnPoint = Random.Range(0, spawnPoints.Length);
-        selectedSpawnPoint = selectSpawnPoint;
+        StartCoroutine(SpawnSlime());
     }
-
-    private void Update()
-    {
-        if (spawnCoroutine == null)
-        {
-            spawnCoroutine = StartCoroutine(SpawnSlime());
-        }
-    }
-
     private void SlimePoolMake()
     {
         for (int i = 0; i < slimePrefabs.Length; i++)
@@ -59,8 +49,8 @@ public class SlimeSpawnManager : MonoBehaviour
     {
         for (int i = 0; i < poolSize; i++)
         {
-            GameObject slime = slimeDic["BasicSlime"][i];
-            if (!slime.activeSelf)
+            GameObject slime = slimeDic[slimeKey][i];
+            if (!slime.activeSelf && spawnPoints.Length != 1)
             {
                 do
                 {
@@ -73,7 +63,8 @@ public class SlimeSpawnManager : MonoBehaviour
             }
         }
         yield return new WaitForSeconds(Random.Range(spawnCoolFirst, spawnCoolSecond));
-        spawnCoroutine = null;
+
+        StartCoroutine(SpawnSlime());
     }
 
 }

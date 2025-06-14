@@ -23,7 +23,7 @@ public class CannonRotate : MonoBehaviour
     {
         if (!cannon.IsShooting)  
         {
-            transform.Rotate(0, 0, moveX * rotatePower);
+            transform.Rotate(0, 0, moveX * rotatePower * Time.deltaTime);
         }
     }
 }

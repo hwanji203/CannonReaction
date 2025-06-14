@@ -1,47 +1,35 @@
 using UnityEngine;
 
-public class AttackToPlayer : MonoBehaviour
+public class AttackToPlayerMain : MonoBehaviour
 {
-    [SerializeField] private SlimeAnimation slimeAni;
-    [SerializeField] private SlimeClipEvent slimeClipEvent;
+    private SlimeAnimation slimeAni;
+    private SlimeClipEvent slimeClipEvent;
     private CannonEvent[] cannon;
-    private Collider2D myCollider;
 
     private void Awake()
     {
-        cannon = new CannonEvent[3];
+        slimeAni = GetComponent<SlimeAnimation>();
+        slimeClipEvent = GetComponent<SlimeClipEvent>();
 
+        cannon = new CannonEvent[3];
         cannon[0] = GameObject.Find("Cannon").GetComponent<CannonEvent>();
         cannon[1] = GameObject.Find("CannonR").GetComponent<CannonEvent>();
         cannon[2] = GameObject.Find("CannonL").GetComponent<CannonEvent>();
-        myCollider = GetComponent<BoxCollider2D>();
     }
 
-    public void OnTriggerStay2D(Collider2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
         if (!slimeAni.IsAttacking)
         {
-            if (collision.gameObject.CompareTag(cannon[0].gameObject.tag) 
+            if (collision.gameObject.CompareTag(cannon[0].gameObject.tag)
                 || collision.gameObject.CompareTag(cannon[1].gameObject.tag)
                 || collision.gameObject.CompareTag(cannon[2].gameObject.tag))
             {
                 slimeClipEvent.CastleAttack = false;
-                slimeAni.Attack();
-            }
-        }
-    }
-
-    public void CheckPlayer()
-    {
-        for (int i = 0; i < cannon.Length; i++)
-        {
-            if (myCollider.bounds.Intersects(cannon[i].GetComponent<Collider2D>().bounds))
-            {
                 for (int j = 0; j < cannon.Length; j++)
                 {
                     cannon[j].TakeDamage();
                 }
-                break;
             }
         }
     }

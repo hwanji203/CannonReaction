@@ -16,8 +16,9 @@ public class SlimeSpawn : MonoBehaviour
 
     public void SpawnSlime(GameObject slimePrefab)
     {
-        slimePrefab.SetActive(true);
         slimePrefab.transform.position = new Vector2(Random.Range(spawnAreaLeft, spawnAreaRight), transform.position.y);
+        slimePrefab.GetComponent<SlimeHealthSystem>().ResetHP();
+        slimePrefab.SetActive(true);
     }
 
 #if UNITY_EDITOR
