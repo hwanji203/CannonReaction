@@ -16,14 +16,14 @@ public class SlimeMovement : MonoBehaviour
     private readonly int hitHash = Animator.StringToHash("hit");
     private readonly int deadHash = Animator.StringToHash("dead");
 
-    private SlimeSpreadExp sSE;
+    private SpreadExp spreadExp;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         rb.linearVelocity = Vector2.up * slowSpeed;
-        sSE = GetComponent<SlimeSpreadExp>();
+        spreadExp = FindAnyObjectByType<SpreadExp>();
     }
 
     private void OnEnable()
@@ -63,12 +63,13 @@ public class SlimeMovement : MonoBehaviour
     }
     public void Dead()
     {
+        StopAllCoroutines();
         rb.linearVelocity = Vector2.zero;
         animator.SetTrigger(deadHash);
     }
     public void DeadEnd()
     {
-        sSE.SpreadExp();
+        spreadExp.Spread(transform.position);
         gameObject.SetActive(false);
     }
 

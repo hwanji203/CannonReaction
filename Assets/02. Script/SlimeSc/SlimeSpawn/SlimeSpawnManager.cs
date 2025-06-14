@@ -8,7 +8,7 @@ public class SlimeSpawnManager : MonoBehaviour
     [SerializeField] GameObject[] slimePrefabs;
     [SerializeField] Transform slimePoolPa;
     Dictionary<string, GameObject[]> slimeDic;
-    private int poolSize = 20;
+    private int poolSize = 30;
 
     private float spawnCoolFirst = 1;
     private float spawnCoolSecond = 2;
@@ -18,15 +18,27 @@ public class SlimeSpawnManager : MonoBehaviour
     private int selectSpawnPoint;
     private int selectedSpawnPoint;
 
+    private SpreadExp spreadExp;
+
     private void Awake()
     {
+        spreadExp = GameObject.Find("ExpManager").GetComponent<SpreadExp>();
         slimeDic = new Dictionary<string, GameObject[]>();
         SlimePoolMake();
+
     }
     private void Start()
     {
         selectSpawnPoint = Random.Range(0, spawnPoints.Length);
         selectedSpawnPoint = selectSpawnPoint;
+    }
+
+    private void Update()
+    {
+        if (spawnCoroutine == null)
+        {
+            spawnCoroutine = StartCoroutine(SpawnSlime());
+        }
     }
 
     private void SlimePoolMake()
@@ -43,15 +55,6 @@ public class SlimeSpawnManager : MonoBehaviour
             slimeDic.Add(slimePrefabs[i].name, slimePool);
         }
     }
-
-    private void Update()
-    {
-        if (spawnCoroutine == null)
-        {
-            spawnCoroutine = StartCoroutine(SpawnSlime());
-        }
-    }
-
     private IEnumerator SpawnSlime()
     {
         for (int i = 0; i < poolSize; i++)

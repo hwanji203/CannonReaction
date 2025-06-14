@@ -1,14 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SlimeSpreadExp : MonoBehaviour
+public class SpreadExp : MonoBehaviour
 {
     [SerializeField] private GameObject expPrefab;
     private Transform poolTran;
-    private Stack<GameObject> expPool;
+    public Stack<GameObject> expPool;
 
     [SerializeField] private int maxSpreadExp = 3;
-
     private void Awake()
     {
         poolTran = GameObject.Find("ExpPool").transform;
@@ -16,19 +15,21 @@ public class SlimeSpreadExp : MonoBehaviour
         expPool = new Stack<GameObject>();
     }
 
-    public void SpreadExp()
+    public void Spread(Vector2 slimePosition)
     {
         for (int i = 0; i <  Random.Range(1, maxSpreadExp); i++)
         {
             if (expPool.TryPop(out GameObject exp)) 
             {
-                exp.transform.position = transform.position;
+                Debug.Log("pop 성공");
+                exp.transform.position = slimePosition;
                 exp.SetActive(true);
             }
             else
             {
+                Debug.Log("pop 실패");
                 exp = Instantiate(expPrefab, poolTran);
-                exp.transform.position = transform.position;
+                exp.transform.position = slimePosition;
                 exp.SetActive(true);
             }
         }
