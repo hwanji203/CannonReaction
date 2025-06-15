@@ -386,7 +386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6298f48b88251a40948c65c88a3ffdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forcePower: 22.5
+  forcePower: 20
   baseColor: {r: 1, g: 1, b: 1, a: 1}
   pulseColor: {r: 0, g: 1, b: 1, a: 1}
   speed: 5

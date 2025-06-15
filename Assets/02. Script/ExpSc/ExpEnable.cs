@@ -7,20 +7,31 @@ public class ExpEnable : MonoBehaviour
 
     private SpreadExp spreadExp;
 
+    public bool IsMoving { get; set; } = false;
+
+    private float lifeTime = 0;
     private void Awake()
     {
         spreadExp = GameObject.FindAnyObjectByType<SpreadExp>();
     }
 
-    private void OnEnable()
+    private void Update()
     {
-        StartCoroutine(ExpDisable());
+        if (!IsMoving)
+        {
+            lifeTime += Time.deltaTime;
+        }
+        if (lifeTime > disableTime)
+        {
+            PushExp();
+        }
     }
 
-    private IEnumerator ExpDisable()
+    public void PushExp()
     {
-        yield return new WaitForSeconds(disableTime);
+        lifeTime = 0;
+        IsMoving = false;
         spreadExp.expPool.Push(gameObject);
-        gameObject.SetActive(false);
     }
+
 }
