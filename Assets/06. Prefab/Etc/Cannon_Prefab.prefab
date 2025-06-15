@@ -54,6 +54,9 @@ GameObject:
   - component: {fileID: 7681870208386662908}
   - component: {fileID: 6021524110587704947}
   - component: {fileID: 2882297769790403872}
+  - component: {fileID: 3921738122780335705}
+  - component: {fileID: 3734843262603982693}
+  - component: {fileID: 6654151471744493161}
   m_Layer: 8
   m_Name: Cannon_Prefab
   m_TagString: Cannon
@@ -297,8 +300,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootFirDelay: 0.175
-  shootCool: 0.2
-  invincibilityTime: 1
+  <shootCool>k__BackingField: 0.3
 --- !u!114 &5417212373863810836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -384,12 +386,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6298f48b88251a40948c65c88a3ffdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forcePower: 15
+  forcePower: 22.5
   baseColor: {r: 1, g: 1, b: 1, a: 1}
   pulseColor: {r: 0, g: 1, b: 1, a: 1}
   speed: 5
   statusEffectDuration: 3
-  recoverCount: 1
+  recoverCount: 5
+--- !u!114 &3921738122780335705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7020763545067162317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6f3e7c214918794f9d454c5d375a442, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forcePower: 17.5
+  baseColor: {r: 1, g: 1, b: 1, a: 1}
+  pulseColor: {r: 0, g: 1, b: 0, a: 1}
+  speed: 5
+  statusEffectDuration: 3.5
+--- !u!114 &3734843262603982693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7020763545067162317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc0002d17ba19dd4d887695b76ca0f29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forcePower: 17.5
+  baseColor: {r: 1, g: 1, b: 1, a: 1}
+  pulseColor: {r: 1, g: 0, b: 0, a: 1}
+  speed: 5
+  intervalSeconds: 0.75
+  EffectCount: 4
+--- !u!114 &6654151471744493161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7020763545067162317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 648113b6cc98a1943952a0c4fa4b0ce3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7618705203214368592
 GameObject:
   m_ObjectHideFlags: 0

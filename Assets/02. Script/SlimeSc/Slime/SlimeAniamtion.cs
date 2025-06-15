@@ -24,6 +24,7 @@ public class SlimeAnimation : MonoBehaviour
     private void OnEnable()
     {
         animator.SetTrigger(startHash);
+        IsAttacking = false;
     }
 
     public void Attack()

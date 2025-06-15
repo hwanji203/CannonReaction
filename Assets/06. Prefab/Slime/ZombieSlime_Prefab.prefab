@@ -95,9 +95,9 @@ GameObject:
   - component: {fileID: -6865220576816111479}
   - component: {fileID: 3304692769988853575}
   - component: {fileID: -3934045791361676592}
-  - component: {fileID: 3160789202533613214}
+  - component: {fileID: 2386313399862935749}
   m_Layer: 9
-  m_Name: BasicSlime_Prefab
+  m_Name: ZombieSlime_Prefab
   m_TagString: Slime
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -163,7 +163,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1830211586, guid: bb03e8606cbdbd246846fb312746506b, type: 3}
+  m_Sprite: {fileID: 1437574513, guid: 8b1dc3dddb7747647a82ede61241a9c2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -184,7 +184,7 @@ Animator:
   m_GameObject: {fileID: 5157872834877234318}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0ad5a90347fe279408f5890c8cf48f0d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9c7931f94565f4e49a377a4b443f7f45, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -296,7 +296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a067d3ab43371c4385f3082e1aeaa04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 2
+  maxHealth: 4
 --- !u!114 &-3934045791361676592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,10 +309,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e08cda528d91c0b4da7501176d56218b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fastSpeed: 7.25
-  middleSpeed: 4.5
-  slowSpeed: 0.5
---- !u!114 &3160789202533613214
+  fastSpeed: 5
+  middleSpeed: 2.5
+  slowSpeed: 0.1
+--- !u!114 &2386313399862935749
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -321,7 +321,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5157872834877234318}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d761aa39d817704449ec6e24329d542d, type: 3}
+  m_Script: {fileID: 11500000, guid: 47b9f6de6bafca64b9d1bb74b131872f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   attackArea: {fileID: 2572709498940814680}

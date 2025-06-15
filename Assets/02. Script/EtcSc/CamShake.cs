@@ -3,21 +3,14 @@ using Unity.Cinemachine;
 
 public class CameraShake : MonoBehaviour
 {
-    [SerializeField] private CinemachineImpulseSource impulse;
-
-    private CannonEvent cannonEvent;
+    private CinemachineImpulseSource impulse;
 
     private void Awake()
     {
-        cannonEvent = FindAnyObjectByType<CannonEvent>();
+        impulse = FindAnyObjectByType<CinemachineImpulseSource>();
     }
-    void Start()
+    public void Shake(float power)
     {
-        cannonEvent.TakeDamageEvent += Shake;
-    }
-
-    private void Shake(BySlime slime)
-    {
-        impulse.GenerateImpulse();
+        impulse.GenerateImpulse(power / 15f);
     }
 }

@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class CannonTakeDamage : MonoBehaviour
 {
-
     private CannonEvent cannon;
 
     [SerializeField] private GameObject[] slimes;
@@ -23,6 +22,7 @@ public class CannonTakeDamage : MonoBehaviour
     }
     private void TakeDamage(BySlime name)
     {
+        cannon.IsDamaging = true;
         slimeEffects[name]();
     }
 }

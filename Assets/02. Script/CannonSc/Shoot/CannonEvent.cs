@@ -10,8 +10,9 @@ public class CannonEvent : MonoBehaviour
     public event Action<BySlime> TakeDamageEvent;
 
     [SerializeField] private float shootFirDelay = 0.3f; // ¼±µô
-    [SerializeField] private float shootCool = 0.3f; // ÄðÅ¸ÀÓ
-    [SerializeField] private float invincibilityTime = 1f; // ÄðÅ¸ÀÓ
+    [field : SerializeField] public float shootCool { get; set; } = 0.3f; // ÄðÅ¸ÀÓ
+
+    public bool IsDamaging { get; set; } = false;
 
     private Coroutine shootCoroutine;
     private Coroutine takeDamageCoroutine;
@@ -38,18 +39,11 @@ public class CannonEvent : MonoBehaviour
     }
     public void TakeDamage(BySlime name)
     {
-        if (takeDamageCoroutine == null)
+        if (!IsDamaging)
         {
-            takeDamageCoroutine = StartCoroutine(TakeDamageCo(name));
+            TakeDamageEvent?.Invoke(name);
         }
     }
-    private IEnumerator TakeDamageCo(BySlime name)
-    {
-        TakeDamageEvent?.Invoke(name);
-        yield return new WaitForSeconds(invincibilityTime);
-        takeDamageCoroutine = null;
-    }
-
     private IEnumerator Shoot()
     {
         AniPlay();

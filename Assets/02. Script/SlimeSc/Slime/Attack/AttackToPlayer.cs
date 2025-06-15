@@ -4,26 +4,26 @@ public class AttackToPlayer : MonoBehaviour
 {
     private SlimeAnimation slimeAni;
     private SlimeClipEvent slimeClipEvent;
-    private ByZombie[] cannon;
+
+    protected BySlime[] cannon;
+
     [SerializeField] private Collider2D attackArea;
     private Collider2D slimeCollider;
 
     private bool isCannonIn = false;
-
     private void Start()
     {
         slimeAni = GetComponent<SlimeAnimation>();
         slimeClipEvent = GetComponent<SlimeClipEvent>();
-
-        cannon = new ByZombie[3];
-
-        cannon[0] = GameObject.Find("Cannon").GetComponent<ByZombie>();
-        cannon[1] = GameObject.Find("CannonR").GetComponent<ByZombie>();
-        cannon[2] = GameObject.Find("CannonL").GetComponent<ByZombie>();
         slimeCollider = GetComponent<Collider2D>();
     }
 
-    private void Update()
+    private void OnEnable()
+    {
+        isCannonIn = false;
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (isCannonIn)
         {
@@ -47,9 +47,7 @@ public class AttackToPlayer : MonoBehaviour
     {
         if (!slimeAni.IsAttacking)
         {
-            if (collision.gameObject.CompareTag(cannon[0].gameObject.tag) 
-                || collision.gameObject.CompareTag(cannon[1].gameObject.tag)
-                || collision.gameObject.CompareTag(cannon[2].gameObject.tag))
+            if (collision.gameObject.CompareTag("Cannon"))
             {
                 isCannonIn = true;
                 slimeClipEvent.CastleAttack = false;

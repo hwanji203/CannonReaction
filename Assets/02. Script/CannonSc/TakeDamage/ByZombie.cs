@@ -8,22 +8,11 @@ public class ByZombie : BySlime
     [SerializeField] private Color pulseColor = Color.cyan;
     [SerializeField] private float speed = 5f;
 
-    private CannonEvent cannon;
-    private SpriteRenderer spriteRen;
-    private bool statusEffect = false;
     [SerializeField] private float statusEffectDuration = 3f;
 
     [SerializeField] private int recoverCount = 5;
     private int nowRecoverCount = 0;
 
-    private CannonTakeDamage takeDam;
-    private void Awake()
-    {
-        cannon = GetComponent<CannonEvent>();
-        spriteRen = GetComponent<SpriteRenderer>();
-        rb = GetComponent<Rigidbody2D>();
-        takeDam = GetComponent<CannonTakeDamage>();
-    }
 
     private void Update()
     {
@@ -43,12 +32,6 @@ public class ByZombie : BySlime
             }
         }
     }
-
-    private void Start()
-    {
-        takeDam.slimeEffects.Add(this, Effect);
-    }
-
     private IEnumerator StatusEffectDuration()
     {
         cannon.CanShooting = false;
@@ -57,16 +40,14 @@ public class ByZombie : BySlime
         Recover();
     }
 
-    private void Recover()
+    protected override void MyRecover()
     {
-        statusEffect = false;
         cannon.CanShooting = true;
-        spriteRen.color = baseColor;
     }
 
     protected override void Effect()
     {
-        StopAllCoroutines();
+        TakeDamage();
         StartCoroutine(StatusEffectDuration());
     }
 }

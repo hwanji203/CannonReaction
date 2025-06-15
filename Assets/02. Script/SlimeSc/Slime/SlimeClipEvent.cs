@@ -16,10 +16,15 @@ public class SlimeClipEvent : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.linearVelocity = Vector2.up * slowSpeed;
         spreadExp = FindAnyObjectByType<SpreadExp>();
         attack = GetComponent<AttackToPlayer>();
         slimeAnimation = GetComponent<SlimeAnimation>();
+    }
+
+    private void OnEnable()
+    {
+        rb.linearVelocity = Vector2.up * slowSpeed;
+        CastleAttack = true;
     }
 
     public void CDeadEnd()

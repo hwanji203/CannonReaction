@@ -2,14 +2,14 @@ using UnityEngine;
 using System;
 
 
-public class SlimeEvent : MonoBehaviour
+public class SlimeHit : MonoBehaviour
 {
     private SlimeHealthSystem healthSystem;
 
     private void Awake()
     {
         healthSystem = GetComponent<SlimeHealthSystem>();
-    }
+    }   
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

@@ -7,29 +7,24 @@ public class SlimeSpawnManager : MonoBehaviour
 {
     [SerializeField] GameObject[] slimePrefabs;
     [SerializeField] Transform slimePoolPa;
-    Dictionary<string, GameObject[]> slimeDic;
+    public Dictionary<string, GameObject[]> SlimeDic { get; private set; }
     private int poolSize = 30;
-
-    [SerializeField] private float spawnCoolFirst = 1;
-    [SerializeField] private float spawnCoolSecond = 2;
+    public string[] SlimesNames { get; private set; }
 
     [SerializeField] SlimeSpawn[] spawnPoints;
     private int selectSpawnPoint;
     private int selectedSpawnPoint;
 
-    private string slimeKey;
+    SlimeSpawnDifficulty diff;
 
     private void Awake()
     {
-        slimeDic = new Dictionary<string, GameObject[]>();
+        diff = GetComponent<SlimeSpawnDifficulty>();
+        SlimeDic = new Dictionary<string, GameObject[]>();
+        SlimesNames = new string[slimePrefabs.Length];
         SlimePoolMake();
+        diff.Keys = SlimesNames;
 
-        slimeKey = slimePrefabs[0].name;
-    }
-
-    private void Start()
-    {
-        StartCoroutine(SpawnSlime());
     }
     private void SlimePoolMake()
     {
@@ -42,14 +37,15 @@ public class SlimeSpawnManager : MonoBehaviour
                 slimePool[j].transform.position = transform.position;
                 slimePool[j].SetActive(false);
             }
-            slimeDic.Add(slimePrefabs[i].name, slimePool);
+            SlimesNames[i] = slimePrefabs[i].name;
+            SlimeDic.Add(slimePrefabs[i].name, slimePool);
         }
     }
-    private IEnumerator SpawnSlime()
+    public IEnumerator SpawnSlime(string key, float waitTime)
     {
         for (int i = 0; i < poolSize; i++)
         {
-            GameObject slime = slimeDic[slimeKey][i];
+            GameObject slime = SlimeDic[key][i];
             if (!slime.activeSelf && spawnPoints.Length != 1)
             {
                 do
@@ -62,9 +58,7 @@ public class SlimeSpawnManager : MonoBehaviour
                 break;
             }
         }
-        yield return new WaitForSeconds(Random.Range(spawnCoolFirst, spawnCoolSecond));
-
-        StartCoroutine(SpawnSlime());
+        yield return new WaitForSeconds(waitTime);
+        diff.spawnCo = null;
     }
-
 }
