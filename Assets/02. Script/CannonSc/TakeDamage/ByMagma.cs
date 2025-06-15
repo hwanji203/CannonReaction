@@ -12,15 +12,6 @@ public class ByMagma : BySlime
 
     [SerializeField] private int EffectCount = 3;
     private int nowEffectCount = 0;
-
-    private void Awake()
-    {
-        cannon = GetComponent<CannonEvent>();
-        spriteRen = GetComponent<SpriteRenderer>();
-        rb = GetComponent<Rigidbody2D>();
-        takeDam = GetComponent<CannonTakeDamage>();
-    }
-
     private void Update()
     {
         if (statusEffect)

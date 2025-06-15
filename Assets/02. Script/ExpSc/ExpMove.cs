@@ -23,7 +23,7 @@ public class ExpMove : MonoBehaviour
         expEnable = GetComponent<ExpEnable>();
 
         outExpCollecter = GameObject.Find("ExpCollector");
-        inExpCollecter = outExpCollecter.transform.GetChild(1).transform;
+        inExpCollecter = outExpCollecter.transform.GetChild(0).transform;
     }
 
     private void Update()
