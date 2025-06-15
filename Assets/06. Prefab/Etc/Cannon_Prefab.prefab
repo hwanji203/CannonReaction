@@ -53,6 +53,7 @@ GameObject:
   - component: {fileID: 5417212373863810836}
   - component: {fileID: 7681870208386662908}
   - component: {fileID: 6021524110587704947}
+  - component: {fileID: 2882297769790403872}
   m_Layer: 8
   m_Name: Cannon_Prefab
   m_TagString: Cannon
@@ -323,12 +324,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a9a32170d165d74a9980c5fa0f19aa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseColor: {r: 1, g: 1, b: 1, a: 1}
-  pulseColor: {r: 0, g: 0.5698112, b: 0, a: 1}
-  speed: 5
-  statusEffectDuration: 6
-  forcePower: 15
-  recoverCount: 6
+  slimes:
+  - {fileID: 5157872834877234318, guid: ad01e7e96cd9ca442843369cbec20e19, type: 3}
 --- !u!61 &6021524110587704947
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -375,6 +372,24 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 2.25}
   m_EdgeRadius: 0
+--- !u!114 &2882297769790403872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7020763545067162317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6298f48b88251a40948c65c88a3ffdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forcePower: 15
+  baseColor: {r: 1, g: 1, b: 1, a: 1}
+  pulseColor: {r: 0, g: 1, b: 1, a: 1}
+  speed: 5
+  statusEffectDuration: 3
+  recoverCount: 1
 --- !u!1 &7618705203214368592
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,7 +16,7 @@ public class CameraShake : MonoBehaviour
         cannonEvent.TakeDamageEvent += Shake;
     }
 
-    private void Shake()
+    private void Shake(BySlime slime)
     {
         impulse.GenerateImpulse();
     }

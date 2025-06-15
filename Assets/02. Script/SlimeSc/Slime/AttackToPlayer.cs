@@ -4,20 +4,20 @@ public class AttackToPlayer : MonoBehaviour
 {
     [SerializeField] private SlimeAnimation slimeAni;
     [SerializeField] private SlimeClipEvent slimeClipEvent;
-    private CannonEvent[] cannon;
+    private ByZombie[] cannon;
     private Collider2D myCollider;
 
-    private void Awake()
+    private void Start()
     {
-        cannon = new CannonEvent[3];
+        cannon = new ByZombie[3];
 
-        cannon[0] = GameObject.Find("Cannon").GetComponent<CannonEvent>();
-        cannon[1] = GameObject.Find("CannonR").GetComponent<CannonEvent>();
-        cannon[2] = GameObject.Find("CannonL").GetComponent<CannonEvent>();
+        cannon[0] = GameObject.Find("Cannon").GetComponent<ByZombie>();
+        cannon[1] = GameObject.Find("CannonR").GetComponent<ByZombie>();
+        cannon[2] = GameObject.Find("CannonL").GetComponent<ByZombie>();
         myCollider = GetComponent<BoxCollider2D>();
     }
 
-    public void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!slimeAni.IsAttacking)
         {
@@ -39,7 +39,7 @@ public class AttackToPlayer : MonoBehaviour
             {
                 for (int j = 0; j < cannon.Length; j++)
                 {
-                    cannon[j].TakeDamage();
+                    cannon[j].gameObject.GetComponent<CannonEvent>().TakeDamage(cannon[j]);
                 }
                 break;
             }

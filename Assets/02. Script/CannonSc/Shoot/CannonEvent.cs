@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 public class CannonEvent : MonoBehaviour
 {
     public event Action shootEvnet;
-    public event Action TakeDamageEvent;
+    public event Action<BySlime> TakeDamageEvent;
 
     [SerializeField] private float shootFirDelay = 0.3f; // ¼±µô
     [SerializeField] private float shootCool = 0.3f; // ÄðÅ¸ÀÓ
@@ -36,16 +36,16 @@ public class CannonEvent : MonoBehaviour
             shootCoroutine = StartCoroutine(Shoot());
         }
     }
-    public void TakeDamage()
+    public void TakeDamage(BySlime name)
     {
         if (takeDamageCoroutine == null)
         {
-            takeDamageCoroutine = StartCoroutine(TakeDamageCo());
+            takeDamageCoroutine = StartCoroutine(TakeDamageCo(name));
         }
     }
-    private IEnumerator TakeDamageCo()
+    private IEnumerator TakeDamageCo(BySlime name)
     {
-        TakeDamageEvent?.Invoke();
+        TakeDamageEvent?.Invoke(name);
         yield return new WaitForSeconds(invincibilityTime);
         takeDamageCoroutine = null;
     }
