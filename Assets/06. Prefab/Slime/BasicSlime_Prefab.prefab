@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8211106510772800924}
   - component: {fileID: 2572709498940814680}
-  - component: {fileID: 2217317726494820568}
   m_Layer: 11
   m_Name: AttackArea
   m_TagString: Untagged
@@ -79,20 +78,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 5.75, y: 3.5}
   m_EdgeRadius: 0
---- !u!114 &2217317726494820568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 203613869171659720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fadcc557e9045241833a79d0248180c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slimeAni: {fileID: 940902578618789923}
-  slimeClipEvent: {fileID: -3934045791361676592}
 --- !u!1 &5157872834877234318
 GameObject:
   m_ObjectHideFlags: 0
@@ -110,7 +95,7 @@ GameObject:
   - component: {fileID: -6865220576816111479}
   - component: {fileID: 3304692769988853575}
   - component: {fileID: -3934045791361676592}
-  - component: {fileID: -7710579503687767260}
+  - component: {fileID: 2673528367159780055}
   m_Layer: 9
   m_Name: BasicSlime_Prefab
   m_TagString: Slime
@@ -327,7 +312,7 @@ MonoBehaviour:
   fastSpeed: 7.25
   middleSpeed: 4.5
   slowSpeed: 0.5
---- !u!114 &-7710579503687767260
+--- !u!114 &2673528367159780055
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -336,6 +321,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5157872834877234318}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38908f6e6be05d14bbe59eb976574f5d, type: 3}
+  m_Script: {fileID: 11500000, guid: 6fadcc557e9045241833a79d0248180c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackArea: {fileID: 2572709498940814680}

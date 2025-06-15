@@ -18,7 +18,7 @@ public class SlimeClipEvent : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.linearVelocity = Vector2.up * slowSpeed;
         spreadExp = FindAnyObjectByType<SpreadExp>();
-        attack = transform.GetChild(0).GetComponent<AttackToPlayer>();
+        attack = GetComponent<AttackToPlayer>();
         slimeAnimation = GetComponent<SlimeAnimation>();
     }
 

@@ -7808,6 +7808,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2882297769790403872, guid: 359e0b6fc73f2d143be168183451940f, type: 3}
+      propertyPath: recoverCount
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3121299953879874558, guid: 359e0b6fc73f2d143be168183451940f, type: 3}
       propertyPath: bulletPoolPa
       value: 
