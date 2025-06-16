@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject); // ¾À ÀüÈ¯ÇØµµ ÆÄ±« ¾ÈµÊ
-            Application.targetFrameRate = 144;
+            Application.targetFrameRate = 160;
         }
         else
         {

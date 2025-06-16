@@ -1,38 +1,39 @@
+using UnityEditor.Profiling.Memory.Experimental;
 using UnityEngine;
 
 public class AttackToPlayer : MonoBehaviour
 {
-    private SlimeAnimation slimeAni;
-    private SlimeClipEvent slimeClipEvent;
+    protected SlimeAnimation slimeAni;
+    protected SlimeClipEvent slimeClipEvent;
 
     protected BySlime[] cannon;
     protected CannonEvent cannonEvent;
 
-    [SerializeField] private Collider2D attackArea;
-    private Collider2D slimeCollider;
+    [SerializeField] protected Collider2D attackArea;
+    protected Collider2D slimeCollider;
 
-    private bool isCannonIn = false;
+    protected bool isCannonIn = false;
     protected virtual void Awake()
     {
         slimeAni = GetComponent<SlimeAnimation>();
         slimeClipEvent = GetComponent<SlimeClipEvent>();
         slimeCollider = GetComponent<Collider2D>();
     }
-    protected void Start()
+
+    protected virtual void Start()
     {
         cannonEvent = cannon[0].GetComponent<CannonEvent>();
     }
-
-    private void OnEnable()
+    protected void OnEnable()
     {
         isCannonIn = false;
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    protected virtual void OnTriggerStay2D(Collider2D collision)
     {
-        if (isCannonIn)
+        if (!cannonEvent.IsDamaging)
         {
-            if (!cannonEvent.IsDamaging)
+            if (isCannonIn)
             {
                 for (int i = 0; i < cannon.Length; i++)
                 {
@@ -47,14 +48,6 @@ public class AttackToPlayer : MonoBehaviour
                     }
                 }
             }
-        }
-    }
-
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (!cannonEvent.IsDamaging)
-        {
             if (!slimeAni.IsAttacking)
             {
                 if (collision.gameObject.CompareTag("Cannon"))
@@ -66,19 +59,21 @@ public class AttackToPlayer : MonoBehaviour
             }
         }
     }
-
     public void CheckPlayer()
     {
-        for (int i = 0; i < cannon.Length; i++)
+        if (!!cannonEvent.IsDamaging)
         {
-            if (attackArea.bounds.Intersects(cannon[i].GetComponent<Collider2D>().bounds))
+            for (int i = 0; i < cannon.Length; i++)
             {
-                for (int j = 0; j < cannon.Length; j++)
+                if (attackArea.bounds.Intersects(cannon[i].GetComponent<Collider2D>().bounds))
                 {
-                    cannon[j].gameObject.GetComponent<CannonEvent>().TakeDamage(cannon[j]);
+                    for (int j = 0; j < cannon.Length; j++)
+                    {
+                        cannon[j].gameObject.GetComponent<CannonEvent>().TakeDamage(cannon[j]);
+                    }
+                    isCannonIn = false;
+                    break;
                 }
-                isCannonIn = false;
-                break;
             }
         }
     }

@@ -50,7 +50,6 @@ GameObject:
   - component: {fileID: 6991789277176166552}
   - component: {fileID: 8710181205362746803}
   - component: {fileID: 9113259376305904179}
-  - component: {fileID: 5417212373863810836}
   - component: {fileID: 7681870208386662908}
   - component: {fileID: 6021524110587704947}
   - component: {fileID: 2882297769790403872}
@@ -205,8 +204,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc3b11e11d7aef440a6a4030445c9408, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reactionPower: 18
-  myGravityScale: 3
+  reactionPower: 17.5
+  MyGravityScale: 2.5
 --- !u!114 &3254876371190498949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,19 +300,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootFirDelay: 0.175
   <shootCool>k__BackingField: 0.3
---- !u!114 &5417212373863810836
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7020763545067162317}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d384a29d78b6a2440976a75feda256d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startWaitTime: 0
 --- !u!114 &7681870208386662908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -421,11 +407,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc0002d17ba19dd4d887695b76ca0f29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forcePower: 17.5
+  forcePower: 16.5
   baseColor: {r: 1, g: 1, b: 1, a: 1}
   pulseColor: {r: 1, g: 0, b: 0, a: 1}
   speed: 5
-  intervalSeconds: 0.75
+  intervalSeconds: 0.875
   EffectCount: 4
 --- !u!114 &6654151471744493161
 MonoBehaviour:

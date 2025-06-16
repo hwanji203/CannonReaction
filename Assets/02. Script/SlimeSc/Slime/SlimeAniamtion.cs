@@ -23,29 +23,29 @@ public class SlimeAnimation : MonoBehaviour
 
     private void OnEnable()
     {
-        animator.SetTrigger(startHash);
         IsAttacking = false;
+        animator.SetTrigger(startHash);
     }
 
     public void Attack()
     {
         IsAttacking = true;
-        rb.linearVelocity = Vector2.zero;
         animator.SetTrigger(attackHash);
         animator.SetBool(castleAttack, true);
+        rb.linearVelocity = Vector2.zero;
     }
     public void Hit()
     {
         if (!IsAttacking)
         {
-            rb.linearVelocity = -Vector2.up;
             animator.SetTrigger(hitHash);
+            rb.linearVelocity = -Vector2.up;
         }
     }
     public void Dead()
     {
+        animator.SetTrigger(deadHash); 
         rb.linearVelocity = Vector2.zero;
-        animator.SetTrigger(deadHash);
     }
     public void ReviveAnimation()
     {

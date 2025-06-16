@@ -11,7 +11,6 @@ public class CannonEvent : MonoBehaviour
 
     [SerializeField] private float shootFirDelay = 0.3f; // ¼±µô
     [field : SerializeField] public float shootCool { get; set; } = 0.3f; // ÄðÅ¸ÀÓ
-
     public bool IsDamaging { get; set; } = false;
 
     private Coroutine shootCoroutine;

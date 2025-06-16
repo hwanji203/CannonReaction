@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class CannonReaction : MonoBehaviour
 {
-    [SerializeField] private float reactionPower = 35f;
-    [SerializeField] private float myGravityScale = 3;
+    [SerializeField] private float reactionPower = 18f;
+    [SerializeField] public float MyGravityScale = 3;
     private Rigidbody2D rigid;
     private Vector2 reactionDir;
 
@@ -16,7 +16,6 @@ public class CannonReaction : MonoBehaviour
     }
     void Start()
     {
-        rigid.gravityScale = myGravityScale;
         cannon.shootEvnet += Reaction;
     }
 

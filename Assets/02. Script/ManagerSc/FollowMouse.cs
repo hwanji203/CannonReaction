@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FollowMouse : MonoBehaviour
@@ -8,11 +9,8 @@ public class FollowMouse : MonoBehaviour
     private void Awake()
     {
         mainCam = Camera.main;
-
-        // 카메라의 화면 경계 계산
         GetEnd();
     }
-
     private void GetEnd()
     {
         Vector2 min = mainCam.ViewportToWorldPoint(new Vector2(0, 0));
@@ -27,7 +25,14 @@ public class FollowMouse : MonoBehaviour
     private void Update()
     {
         GetEnd();
+        if (Time.timeScale != 0)
+        {
+            FollowMouseM();
+        }
+    }
 
+    private void FollowMouseM()
+    {
         Vector3 mousePos = Input.mousePosition;
         Vector3 worldPos = mainCam.ScreenToWorldPoint(mousePos);
         worldPos.z = 0f;
@@ -38,5 +43,4 @@ public class FollowMouse : MonoBehaviour
 
         transform.position = worldPos;
     }
-
 }

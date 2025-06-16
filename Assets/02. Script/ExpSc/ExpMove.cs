@@ -49,7 +49,6 @@ public class ExpMove : MonoBehaviour
     {
         if (collision.gameObject == outExpCollecter)
         {
-            Debug.Log("범위 안에 들어감");
             expEnable.IsMoving = true;
         }
     }

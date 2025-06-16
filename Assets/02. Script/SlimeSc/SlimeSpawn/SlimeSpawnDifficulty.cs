@@ -51,10 +51,10 @@ public class SlimeSpawnDifficulty : MonoBehaviour
             case 4:
                 return Random.Range(1.75f, 2.5f);
             case 5:
-                return Random.Range(1, 1.75f);
+                return Random.Range(1.5f, 2.25f);
             default:
                 Debug.Log("GetTime ¿À·ù");
-                return Random.Range(0.8f, 1.8f);
+                return Random.Range(1.2f, 2f);
         }
     }
 
