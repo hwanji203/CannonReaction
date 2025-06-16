@@ -6,12 +6,12 @@ using UnityEngine;
 public class SlimeAnimation : MonoBehaviour
 {
     private Rigidbody2D rb;
-    private Animator animator;
+    protected Animator animator;
     private readonly int startHash = Animator.StringToHash("start");
     private readonly int attackHash = Animator.StringToHash("attack");
     private readonly int hitHash = Animator.StringToHash("hit");
     private readonly int deadHash = Animator.StringToHash("dead");
-    private readonly int castleAttack = Animator.StringToHash("castleAttack");
+    private readonly int castleAttack = Animator.StringToHash("castleAttack"); private readonly int reviveHash = Animator.StringToHash("revive");
 
     public bool IsAttacking { get; set; } = false;
 
@@ -44,8 +44,11 @@ public class SlimeAnimation : MonoBehaviour
     }
     public void Dead()
     {
-        StopAllCoroutines();
         rb.linearVelocity = Vector2.zero;
         animator.SetTrigger(deadHash);
+    }
+    public void ReviveAnimation()
+    {
+        animator.SetTrigger(reviveHash);
     }
 }

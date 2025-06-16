@@ -60,38 +60,38 @@ public class SlimeSpawnDifficulty : MonoBehaviour
 
     private string GetKey()
     {
-        //float value = Random.Range(0f, 1f);
-
-        //switch (difficulty)
-        //{
-        //    case 1:
-        //        return value < 0.8f ? Keys[0] : Keys[1];
-        //    case 2:
-        //        return value < 0.6f ? Keys[0] : Keys[1];
-        //    case 3:
-        //        return value < 0.4f ? Keys[0] : Keys[1];
-        //    case 4:
-        //        return value < 0.3f ? Keys[0] : value < 0.8f ? Keys[1] : Keys[2];
-        //    case 5:
-        //        return value < 0.15f ? Keys[0] : value < 0.4f ? Keys[1] : Keys[2];
-        //    default:
-        //        Debug.Log("GetKey 오류");
-        //        return Keys[Random.Range(0, Keys.Length)];
-        #region 개발자 모드
         float value = Random.Range(0f, 1f);
 
         switch (difficulty)
         {
             case 1:
+                return value < 0.8f ? Keys[0] : Keys[1];
             case 2:
+                return value < 0.6f ? Keys[0] : Keys[1];
             case 3:
+                return value < 0.4f ? Keys[0] : Keys[1];
             case 4:
+                return value < 0.3f ? Keys[0] : value < 0.8f ? Keys[1] : Keys[2];
             case 5:
                 return value < 0.15f ? Keys[0] : value < 0.4f ? Keys[1] : Keys[2];
             default:
                 Debug.Log("GetKey 오류");
                 return Keys[Random.Range(0, Keys.Length)];
-                #endregion 개발자 모드
+        //        #region 개발자 모드
+        //        float value = Random.Range(0f, 1f);
+
+        //switch (difficulty)
+        //{
+        //    case 1:
+        //    case 2:
+        //    case 3:
+        //    case 4:
+        //    case 5:
+        //        return value < 0.15f ? Keys[0] : value < 0.4f ? Keys[1] : Keys[2];
+        //    default:
+        //        Debug.Log("GetKey 오류");
+        //        return Keys[Random.Range(0, Keys.Length)];
+        //        #endregion 개발자 모드
         }
     }
 }

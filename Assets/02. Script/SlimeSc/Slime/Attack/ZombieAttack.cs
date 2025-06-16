@@ -2,8 +2,10 @@ using UnityEngine;
 
 public class ZombieAttack : AttackToPlayer
 {
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         cannon = new ByZombie[3];
 
         cannon[0] = GameObject.Find("Cannon").GetComponent<ByZombie>();

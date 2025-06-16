@@ -7499,7 +7499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa51da38f254e004385d284163c092ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moreDiffTime: 30
+  moreDiffTime: 1
   difficulty: 1
 --- !u!1001 &1394806422
 PrefabInstance:
@@ -8687,6 +8687,14 @@ PrefabInstance:
       propertyPath: bulletPoolPa
       value: 
       objectReference: {fileID: 1560264995}
+    - target: {fileID: 3734843262603982693, guid: 359e0b6fc73f2d143be168183451940f, type: 3}
+      propertyPath: forcePower
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3734843262603982693, guid: 359e0b6fc73f2d143be168183451940f, type: 3}
+      propertyPath: intervalSeconds
+      value: 1.25
+      objectReference: {fileID: 0}
     - target: {fileID: 4363666452211501566, guid: 359e0b6fc73f2d143be168183451940f, type: 3}
       propertyPath: parPoolPa
       value: 

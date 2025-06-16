@@ -15,7 +15,6 @@ public class CannonEvent : MonoBehaviour
     public bool IsDamaging { get; set; } = false;
 
     private Coroutine shootCoroutine;
-    private Coroutine takeDamageCoroutine;
 
     private Animator ani;
     private int shootHash = Animator.StringToHash("Shoot");

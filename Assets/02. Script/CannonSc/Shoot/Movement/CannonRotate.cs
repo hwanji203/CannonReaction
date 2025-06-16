@@ -8,12 +8,6 @@ public class CannonRotate : MonoBehaviour
     [SerializeField] private float rotatePower = 0.8f;
     private float moveX;
 
-    private CannonEvent cannon;
-    private void Awake()
-    {
-        cannon = GetComponent<CannonEvent>();
-    }
-
     public void OnMove(InputValue value)
     {
         moveX = value.Get<Vector2>().x;
@@ -21,9 +15,6 @@ public class CannonRotate : MonoBehaviour
 
     private void Update()
     {
-        if (!cannon.IsShooting)  
-        {
-            transform.Rotate(0, 0, moveX * rotatePower * Time.deltaTime);
-        }
+        transform.Rotate(0, 0, moveX * rotatePower * Time.deltaTime);
     }
 }

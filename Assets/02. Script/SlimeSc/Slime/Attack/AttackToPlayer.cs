@@ -6,16 +6,21 @@ public class AttackToPlayer : MonoBehaviour
     private SlimeClipEvent slimeClipEvent;
 
     protected BySlime[] cannon;
+    protected CannonEvent cannonEvent;
 
     [SerializeField] private Collider2D attackArea;
     private Collider2D slimeCollider;
 
     private bool isCannonIn = false;
-    private void Start()
+    protected virtual void Awake()
     {
         slimeAni = GetComponent<SlimeAnimation>();
         slimeClipEvent = GetComponent<SlimeClipEvent>();
         slimeCollider = GetComponent<Collider2D>();
+    }
+    protected void Start()
+    {
+        cannonEvent = cannon[0].GetComponent<CannonEvent>();
     }
 
     private void OnEnable()
@@ -27,16 +32,19 @@ public class AttackToPlayer : MonoBehaviour
     {
         if (isCannonIn)
         {
-            for (int i = 0; i < cannon.Length; i++)
+            if (!cannonEvent.IsDamaging)
             {
-                if (slimeCollider.bounds.Intersects(cannon[i].GetComponent<Collider2D>().bounds))
+                for (int i = 0; i < cannon.Length; i++)
                 {
-                    for (int j = 0; j < cannon.Length; j++)
+                    if (slimeCollider.bounds.Intersects(cannon[i].GetComponent<Collider2D>().bounds))
                     {
-                        cannon[j].gameObject.GetComponent<CannonEvent>().TakeDamage(cannon[j]);
+                        for (int j = 0; j < cannon.Length; j++)
+                        {
+                            cannon[j].gameObject.GetComponent<CannonEvent>().TakeDamage(cannon[j]);
+                        }
+                        isCannonIn = false;
+                        break;
                     }
-                    isCannonIn = false;
-                    break;
                 }
             }
         }
@@ -45,13 +53,16 @@ public class AttackToPlayer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!slimeAni.IsAttacking)
+        if (!cannonEvent.IsDamaging)
         {
-            if (collision.gameObject.CompareTag("Cannon"))
+            if (!slimeAni.IsAttacking)
             {
-                isCannonIn = true;
-                slimeClipEvent.CastleAttack = false;
-                slimeAni.Attack();
+                if (collision.gameObject.CompareTag("Cannon"))
+                {
+                    isCannonIn = true;
+                    slimeClipEvent.CastleAttack = false;
+                    slimeAni.Attack();
+                }
             }
         }
     }

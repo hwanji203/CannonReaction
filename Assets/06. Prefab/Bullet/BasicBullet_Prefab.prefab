@@ -166,4 +166,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  <bulletDamage>k__BackingField: 1
+  <bulletDamage>k__BackingField: 10

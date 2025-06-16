@@ -13,7 +13,8 @@ public class SlimeClipEvent : MonoBehaviour
     private SlimeAnimation slimeAnimation;
 
     public bool CastleAttack { get; set; } = true;
-    private void Awake()
+
+    protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         spreadExp = FindAnyObjectByType<SpreadExp>();
@@ -21,13 +22,13 @@ public class SlimeClipEvent : MonoBehaviour
         slimeAnimation = GetComponent<SlimeAnimation>();
     }
 
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
         rb.linearVelocity = Vector2.up * slowSpeed;
         CastleAttack = true;
     }
 
-    public void CDeadEnd()
+    public virtual void CDeadEnd()
     {
         spreadExp.Spread(transform.position);
         gameObject.SetActive(false);

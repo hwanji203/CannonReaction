@@ -4,14 +4,14 @@ using System;
 
 public class SlimeHit : MonoBehaviour
 {
-    private SlimeHealthSystem healthSystem;
+    protected SlimeHealthSystem healthSystem;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         healthSystem = GetComponent<SlimeHealthSystem>();
     }   
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.TryGetComponent<Bullet>(out Bullet bullet))
         {
