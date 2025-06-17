@@ -53,6 +53,9 @@ public class CannonEvent : MonoBehaviour
     }
     private void AniPlay()
     {
-        ani.SetTrigger(shootHash);
+        if (Time.timeScale != 0)
+        {
+            ani.SetTrigger(shootHash);
+        }
     }
 }

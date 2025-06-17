@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: d4fb238926d26d54f8139350a21136f9
+guid: 8651f788c19effb4288747d1d4c616a0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5126499020275340548
-    second: Bar 1_0
+      213: -3975984787076190196
+    second: SelectCannon_0
+  - first:
+      213: -1296786345471367203
+    second: SelectCannon_1
+  - first:
+      213: -8308735084484167578
+    second: SelectCannon_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -72,7 +78,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 128
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: 4
     textureCompression: 1
@@ -100,23 +106,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bar 1_0
+      name: SelectCannon_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 9
         y: 0
-        width: 52
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 36
+        height: 54
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 40556e492bbf42740800000000000000
-      internalID: 5126499020275340548
+      spriteID: c0077fdd6e672d8c0800000000000000
+      internalID: -3975984787076190196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SelectCannon_1
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 0
+        width: 38
+        height: 53
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd72a9080b3e00ee0800000000000000
+      internalID: -1296786345471367203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SelectCannon_2
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 0
+        width: 46
+        height: 58
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 668fe74567171bc80800000000000000
+      internalID: -8308735084484167578
       vertices: []
       indices: 
       edges: []
@@ -125,7 +175,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: d08a3fd46f2dcdc4886199351a9bc77c
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Bar 1_0: 5126499020275340548
+      SelectCannon_0: -3975984787076190196
+      SelectCannon_1: -1296786345471367203
+      SelectCannon_2: -8308735084484167578
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
