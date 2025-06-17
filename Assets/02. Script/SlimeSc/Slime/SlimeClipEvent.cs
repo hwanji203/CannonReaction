@@ -14,6 +14,8 @@ public class SlimeClipEvent : MonoBehaviour
 
     public bool CastleAttack { get; set; } = true;
 
+    [SerializeField] int maxSpreadExp;
+
     protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -30,7 +32,7 @@ public class SlimeClipEvent : MonoBehaviour
 
     public virtual void CDeadEnd()
     {
-        spreadExp.Spread(transform.position);
+        spreadExp.Spread(transform.position, maxSpreadExp);
         gameObject.SetActive(false);
     }
 

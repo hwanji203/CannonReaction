@@ -4,18 +4,14 @@ using UnityEngine;
 public class SpreadExp : MonoBehaviour
 {
     [SerializeField] private GameObject expPrefab;
-    private Transform poolTran;
+    [SerializeField] private Transform poolTran;
     public Stack<GameObject> expPool;
-
-    [SerializeField] private int maxSpreadExp = 3;
     private void Awake()
     {
         expPool = new Stack<GameObject>();
-        poolTran = GameObject.Find("ExpPool").transform;
-
     }
 
-    public void Spread(Vector2 slimePosition)
+    public void Spread(Vector2 slimePosition ,int maxSpreadExp)
     {
         for (int i = 0; i <  Random.Range(1, maxSpreadExp); i++)
         {

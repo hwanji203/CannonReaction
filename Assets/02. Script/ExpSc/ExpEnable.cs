@@ -33,5 +33,4 @@ public class ExpEnable : MonoBehaviour
         IsMoving = false;
         spreadExp.expPool.Push(gameObject);
     }
-
 }

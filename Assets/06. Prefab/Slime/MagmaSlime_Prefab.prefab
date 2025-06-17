@@ -312,6 +312,7 @@ MonoBehaviour:
   fastSpeed: 5.5
   middleSpeed: 3.5
   slowSpeed: 0.2
+  maxSpreadExp: 5
 --- !u!114 &-759401900319247257
 MonoBehaviour:
   m_ObjectHideFlags: 0

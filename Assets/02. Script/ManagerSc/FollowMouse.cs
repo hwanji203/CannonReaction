@@ -1,17 +1,19 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class FollowMouse : MonoBehaviour
 {
     private Camera mainCam;
     private float minX, maxX, minY, maxY;
+    private SpriteRenderer spriteRen;
 
     private void Awake()
     {
         mainCam = Camera.main;
-        GetEnd();
+        spriteRen = GetComponent<SpriteRenderer>();
+        UpdateBounds();
     }
-    private void GetEnd()
+
+    private void UpdateBounds()
     {
         Vector2 min = mainCam.ViewportToWorldPoint(new Vector2(0, 0));
         Vector2 max = mainCam.ViewportToWorldPoint(new Vector2(1, 1));
@@ -24,11 +26,8 @@ public class FollowMouse : MonoBehaviour
 
     private void Update()
     {
-        GetEnd();
-        if (Time.timeScale != 0)
-        {
-            FollowMouseM();
-        }
+        FollowMouseM();
+        UpdateBounds();
     }
 
     private void FollowMouseM()
@@ -37,7 +36,6 @@ public class FollowMouse : MonoBehaviour
         Vector3 worldPos = mainCam.ScreenToWorldPoint(mousePos);
         worldPos.z = 0f;
 
-        // 화면 안으로 제한
         worldPos.x = Mathf.Clamp(worldPos.x, minX, maxX);
         worldPos.y = Mathf.Clamp(worldPos.y, minY, maxY);
 
