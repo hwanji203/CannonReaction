@@ -24,8 +24,8 @@ public class UIFollowMouse : MonoBehaviour
         Vector2 halfCanvas = canvasRect.rect.size / 2;
         Vector2 halfSize = rectTransform.rect.size / 2;
 
-        float limitX = halfCanvas.x - halfSize.x;
-        float limitY = halfCanvas.y - halfSize.y;
+        float limitX = halfCanvas.x;
+        float limitY = halfCanvas.y;
 
         //  제한 적용 (Clamp)
         mousePos.x = Mathf.Clamp(mousePos.x, -limitX, limitX);

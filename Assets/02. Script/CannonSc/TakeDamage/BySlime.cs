@@ -28,8 +28,6 @@ public abstract class BySlime : MonoBehaviour
 
         coolDefault = cannon.shootCool;
         coolDelay = cannon.shootCool * 2;
-
-        camShake = GetComponent<CameraShake>();
     }
     protected void TakeDamage()
     {

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -13,6 +14,7 @@ public class ChooseOne : MonoBehaviour
 
     [SerializeField] private float waitTime = 0.75f;
 
+    [SerializeField] Animator[] brickAnimator;
     private void Awake()
     {
         canvas = GetComponentInParent<Canvas>();
@@ -43,13 +45,29 @@ public class ChooseOne : MonoBehaviour
         breakBall.anchoredPosition = button.anchoredPosition + localMousePos;
         breakBall.SetParent(button);
 
-        StartCoroutine(WaitBullet());
+        StartCoroutine(WaitBullet(EventSystem.current.currentSelectedGameObject.GetComponent<Animator>()));
     }
 
-    public IEnumerator WaitBullet()
+    public IEnumerator WaitBullet(Animator button)
     {
         animator.SetTrigger("select");
         yield return new WaitForSecondsRealtime(waitTime);
         breakBall.gameObject.SetActive(true);
+        foreach (Animator ani in brickAnimator)
+        {
+            if (ani != button)
+            {
+                ani.SetTrigger("notSelected");
+            }
+            else
+            {
+                button.SetTrigger("selected");
+            }
+        }
+    }
+
+    public void ClickButton()
+    {
+
     }
 }

@@ -21,22 +21,20 @@ public class StageManager : MonoBehaviour
 
     private void Start()
     {
-        cannonRb.gravityScale = 0;
-        Spawner.gameObject.SetActive(false);
-        expCollector.SetActive(false);
-        expCollectorUI.SetActive(false);
-        target.SetActive(false);
+        //cannonRb.gravityScale = 0;
+        //Spawner.gameObject.SetActive(false);
+        //expCollector.SetActive(false);
+        //expCollectorUI.SetActive(false);
+        //target.SetActive(false);
+
+        Time.timeScale = 0;
     }
 
     private void Update()
     {
-        if (Keyboard.current.spaceKey.wasPressedThisFrame)
+        if (Keyboard.current.spaceKey.wasPressedThisFrame && Time.timeScale == 0)
         {
-            expCollector.SetActive(true);
-            expCollectorUI.SetActive(true);
-            target.SetActive(true);
-            Spawner.gameObject.SetActive(true);
-            cannonRb.gravityScale = cannon.GetComponent<CannonReaction>().MyGravityScale;
+            Time.timeScale = 1;
             enabled = false;
         }
     }
