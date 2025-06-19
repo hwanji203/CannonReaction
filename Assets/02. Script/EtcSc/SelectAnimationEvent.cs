@@ -12,9 +12,19 @@ public class SelectAnimationEvent : MonoBehaviour
     private Button button;
 
     public event Action EndSelect;
+
+    private Vector3 vector;
+
+    private RectTransform rect;
     private void Awake()
     {
         button = GetComponent<Button>();
+        rect = GetComponent<RectTransform>();
+        vector = rect.anchoredPosition;
+    }
+
+    private void OnEnable()
+    {
         button.interactable = false;
     }
 
@@ -41,9 +51,19 @@ public class SelectAnimationEvent : MonoBehaviour
 
     public void CEndSelect()
     {
+        rect.anchoredPosition = vector;
+        gameObject.SetActive(false);        
         if (isThat)
         {
-            Debug.Log("dsf");
+            EndSelect?.Invoke();
+        }
+    }
+    public void CEndSelect1()
+    {
+        rect.anchoredPosition = vector;
+        gameObject.SetActive(false);
+        if (isThat)
+        {
             EndSelect?.Invoke();
         }
     }

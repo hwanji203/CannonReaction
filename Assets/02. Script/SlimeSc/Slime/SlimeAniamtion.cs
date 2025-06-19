@@ -45,7 +45,6 @@ public class SlimeAnimation : MonoBehaviour
     public void Dead()
     {
         animator.SetTrigger(deadHash); 
-        rb.linearVelocity = Vector2.zero;
     }
     public void ReviveAnimation()
     {

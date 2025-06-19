@@ -344,7 +344,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -412,7 +412,7 @@ MonoBehaviour:
   pulseColor: {r: 1, g: 0, b: 0, a: 1}
   speed: 5
   intervalSeconds: 0.875
-  EffectCount: 4
+  EffectCount: 3
 --- !u!114 &6654151471744493161
 MonoBehaviour:
   m_ObjectHideFlags: 0

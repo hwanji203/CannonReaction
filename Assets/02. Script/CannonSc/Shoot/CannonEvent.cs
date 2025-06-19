@@ -29,7 +29,7 @@ public class CannonEvent : MonoBehaviour
 
     private void Update()
     {
-        if (Keyboard.current.spaceKey.wasPressedThisFrame && shootCoroutine == null && CanShooting)
+        if (Keyboard.current.spaceKey.isPressed && shootCoroutine == null && CanShooting)
         {
             IsShooting = true;
             shootCoroutine = StartCoroutine(Shoot());

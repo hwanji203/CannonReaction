@@ -8,15 +8,23 @@ public class CameraShake : MonoBehaviour
     private void Awake()
     {
         impulse = FindAnyObjectByType<CinemachineImpulseSource>();
-        CinemachineImpulseManager.Instance.IgnoreTimeScale = true;
+    }
 
-    }
-    public void Shake(float power)
+    private void Start()
     {
-        impulse.GenerateImpulse(power / 15f);
+        CinemachineImpulseManager.Instance.IgnoreTimeScale = true;
     }
+
     public void Shake(Vector2 power)
     {
-        impulse.GenerateImpulse(power / 15f);
+        // Vector3 방향 지정 + 크기 조절
+        Vector3 impulseDir = new Vector3(power.x, power.y, 0f) / 15f;
+        impulse.GenerateImpulse(impulseDir);
+    }
+
+    public void SetTime(float time)
+    {
+        CinemachineImpulseManager.Instance.IgnoreTimeScale = true;
+        Time.timeScale = time;
     }
 }

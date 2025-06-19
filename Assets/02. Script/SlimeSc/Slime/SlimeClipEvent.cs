@@ -35,6 +35,10 @@ public class SlimeClipEvent : MonoBehaviour
         spreadExp.Spread(transform.position, maxSpreadExp);
         gameObject.SetActive(false);
     }
+    public virtual void CDeadStart()
+    {
+        rb.linearVelocity = Vector2.zero;
+    }
 
     public void CAttackTiming()
     {

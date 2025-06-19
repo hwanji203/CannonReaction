@@ -1,17 +1,32 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIFollowMouse : MonoBehaviour
 {
     private RectTransform rectTransform;
     private Canvas canvas;
+
+    [SerializeField] private bool isTarget = true;
+
+    private Image image;
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         canvas = GetComponentInParent<Canvas>();
+
+        image = GetComponent<Image>();
     }
 
     private void Update()
     {
+        if (Time.timeScale == 0 && !isTarget)
+        {
+            image.enabled = false;
+        }
+        else
+        {
+            image.enabled = true;
+        }
         Vector2 mousePos;
         RectTransform canvasRect = canvas.transform as RectTransform;
 

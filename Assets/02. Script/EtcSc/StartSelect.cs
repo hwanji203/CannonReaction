@@ -1,5 +1,6 @@
     using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StartSelect : MonoBehaviour
 {
@@ -7,8 +8,8 @@ public class StartSelect : MonoBehaviour
 
     [SerializeField] private GameObject tarOb;
     [SerializeField] private GameObject cannonOb;
-    [SerializeField] private GameObject colOb; 
     [SerializeField] private GameObject ImaOb; 
+    [SerializeField] private GameObject breakOb; 
 
     private readonly int startSelectHash = Animator.StringToHash("startSelect");
 
@@ -18,17 +19,18 @@ public class StartSelect : MonoBehaviour
     [SerializeField] private GameObject selectUI;
 
     private StageManager stageMa;
+
+    private CameraShake cam;
     private void Awake()
     {
         stageMa = GetComponent<StageManager>();
 
-        foreach (Animator g in selects)
-        {
-            g.updateMode = AnimatorUpdateMode.UnscaledTime;
-        }
+        cam = FindAnyObjectByType<CameraShake>();
+
         expGauge = FindAnyObjectByType<ExpGauge>();
-        UISetActive(false);
     }
+
+   
 
     private void UISetActive( bool a)
     {
@@ -37,27 +39,34 @@ public class StartSelect : MonoBehaviour
         cannonOb.SetActive(a);
     }
 
+
     private void Start()
     {
+        foreach (Animator g in selects)
+        {
+            g.updateMode = AnimatorUpdateMode.UnscaledTime;
+            g.gameObject.SetActive(false);
+        }
         expGauge.LevelUpEvent += StartSelectM;
         aniEvent.EndSelect += EndSelectSelectM;
+        UISetActive(false);
+        breakOb.SetActive(false);
     }
     private void EndSelectSelectM()
     {
-        colOb.SetActive(true);
         ImaOb.SetActive(true);
 
         UISetActive(false);
+        breakOb.SetActive(false);
         stageMa.enabled = true;
     }
 
     private void StartSelectM()
     {
-        colOb.SetActive(false);
         ImaOb.SetActive(false);
 
         UISetActive(true);
-        Time.timeScale = 0;
+        cam.SetTime(0);
 
         StartAnimation();
     }
@@ -65,6 +74,8 @@ public class StartSelect : MonoBehaviour
     {
         foreach (Animator g in selects)
         {
+            g.gameObject.GetComponent<Button>().interactable = true;
+            g.gameObject.SetActive(true);
             g.SetTrigger(startSelectHash);
         }
     }

@@ -12,15 +12,13 @@ public class LookMouse : MonoBehaviour
     [SerializeField] private RectTransform targetIcon;
 
     private Image image;
-
-    private CameraShake camShake;
-
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         image = GetComponent<Image>();
     }
-    private void Start()
+
+    private void OnEnable()
     {
         Color color = image.color;
         color.a = 0;
@@ -50,10 +48,5 @@ public class LookMouse : MonoBehaviour
             lookPos = (targetIcon.position - rectTransform.position).normalized;
             rectTransform.rotation = Quaternion.Euler(0, 0, Mathf.Clamp(Mathf.Rad2Deg * Mathf.Atan2(lookPos.y, lookPos.x) - 90, -60, 60));
         }
-    }
-
-    private void GoBack()
-    {
-
     }
 }

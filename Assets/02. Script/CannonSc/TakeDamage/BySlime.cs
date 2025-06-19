@@ -31,7 +31,7 @@ public abstract class BySlime : MonoBehaviour
     }
     protected void TakeDamage()
     {
-        camShake.Shake(forcePower);
+        camShake.Shake(new Vector2(forcePower, 0));
         Jumping();
     }
     private void Start()

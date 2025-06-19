@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class ChooseOne : MonoBehaviour
 {
@@ -19,14 +21,20 @@ public class ChooseOne : MonoBehaviour
     {
         canvas = GetComponentInParent<Canvas>();
         animator.updateMode = AnimatorUpdateMode.UnscaledTime;
+
     }
 
     public void Choose()
     {
-        if (EventSystem.current.currentSelectedGameObject == null) return;
-
+        if (EventSystem.current.currentSelectedGameObject == null)
+        {
+            return;
+        }
         RectTransform button = EventSystem.current.currentSelectedGameObject.GetComponent<RectTransform>();
-        if (button == null) return;
+        if (button == null)
+        {
+            return;
+        };
 
         Vector2 localMousePos;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
@@ -42,10 +50,17 @@ public class ChooseOne : MonoBehaviour
         localMousePos.x = Mathf.Clamp(localMousePos.x, -limitX, limitX);
         localMousePos.y = Mathf.Clamp(localMousePos.y, -limitY, limitY);
 
-        breakBall.anchoredPosition = button.anchoredPosition + localMousePos;
-        breakBall.SetParent(button);
+        // 핵심 수정: 위치 먼저 잡고 SetSibling
+        breakBall.SetParent(button, false);
+        breakBall.anchoredPosition = localMousePos;
+        breakBall.SetAsLastSibling(); // 가장 위에 보이게
+
 
         StartCoroutine(WaitBullet(EventSystem.current.currentSelectedGameObject.GetComponent<Animator>()));
+        foreach (Animator button1 in brickAnimator)
+        {
+            button1.gameObject.GetComponent<Button>().interactable = false;
+        }
     }
 
     public IEnumerator WaitBullet(Animator button)
@@ -53,6 +68,7 @@ public class ChooseOne : MonoBehaviour
         animator.SetTrigger("select");
         yield return new WaitForSecondsRealtime(waitTime);
         breakBall.gameObject.SetActive(true);
+        yield return new WaitForSecondsRealtime(0.75f);
         foreach (Animator ani in brickAnimator)
         {
             if (ani != button)
@@ -64,10 +80,5 @@ public class ChooseOne : MonoBehaviour
                 button.SetTrigger("selected");
             }
         }
-    }
-
-    public void ClickButton()
-    {
-
     }
 }

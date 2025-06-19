@@ -7,10 +7,15 @@ public class ParticleStart : MonoBehaviour
 
     [SerializeField] CameraShake camShake;
 
+    private void Awake()
+    {
+        camShake = FindAnyObjectByType<CameraShake>();
+    }
+
     public void CStartPar()
     {
         firePar.Play();
         smokePar.Play();
-        camShake.Shake(new Vector2(0, -50));
+        camShake.Shake(new Vector2(0,11)); // 방향과 세기 지정
     }
 }
