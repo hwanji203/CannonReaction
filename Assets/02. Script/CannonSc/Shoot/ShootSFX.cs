@@ -15,6 +15,8 @@ public class ShootSFX : MonoBehaviour
     private GameObject parGameO;
 
     private CannonEvent player;
+
+    [SerializeField] private bool isMain = false;
     private void Awake()
     {
         particlePo = transform.Find("ParticlePo");
@@ -32,7 +34,10 @@ public class ShootSFX : MonoBehaviour
 
     public void AudioPlay()
     {
-        AudioManager.Instance.PlaySFX(shootAdClip);
+        if (isMain)
+        {
+            AudioManager.Instance.PlaySFX(shootAdClip);
+        }
     }
 
     private void ParPlay()

@@ -8,12 +8,8 @@ public class StartSelect : MonoBehaviour
 
     [SerializeField] private GameObject tarOb;
     [SerializeField] private GameObject cannonOb;
-    [SerializeField] private GameObject ImaOb; 
+    [SerializeField] private Image ImaOb; 
     [SerializeField] private GameObject breakOb; 
-
-    private readonly int startSelectHash = Animator.StringToHash("startSelect");
-
-    [SerializeField] private Animator[] selects;
 
     [SerializeField] private SelectAnimationEvent aniEvent;
     [SerializeField] private GameObject selectUI;
@@ -36,25 +32,20 @@ public class StartSelect : MonoBehaviour
     {
         selectUI.SetActive(a);
         tarOb.SetActive(a);
-        cannonOb.SetActive(a);
     }
 
 
     private void Start()
     {
-        foreach (Animator g in selects)
-        {
-            g.updateMode = AnimatorUpdateMode.UnscaledTime;
-            g.gameObject.SetActive(false);
-        }
         expGauge.LevelUpEvent += StartSelectM;
         aniEvent.EndSelect += EndSelectSelectM;
         UISetActive(false);
+        cannonOb.SetActive(false);
         breakOb.SetActive(false);
     }
     private void EndSelectSelectM()
     {
-        ImaOb.SetActive(true);
+        ImaOb.enabled = true;
 
         UISetActive(false);
         breakOb.SetActive(false);
@@ -63,20 +54,11 @@ public class StartSelect : MonoBehaviour
 
     private void StartSelectM()
     {
-        ImaOb.SetActive(false);
+        ImaOb.enabled = false;
 
+        cannonOb.SetActive(true);
         UISetActive(true);
         cam.SetTime(0);
+    }
 
-        StartAnimation();
-    }
-    private void StartAnimation()
-    {
-        foreach (Animator g in selects)
-        {
-            g.gameObject.GetComponent<Button>().interactable = true;
-            g.gameObject.SetActive(true);
-            g.SetTrigger(startSelectHash);
-        }
-    }
 }

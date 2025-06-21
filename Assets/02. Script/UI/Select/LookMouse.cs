@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Splines.ExtrusionShapes;
 using UnityEngine.UI;
@@ -12,6 +13,9 @@ public class LookMouse : MonoBehaviour
     [SerializeField] private RectTransform targetIcon;
 
     private Image image;
+
+    public bool shooted = false;
+
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -23,6 +27,7 @@ public class LookMouse : MonoBehaviour
         Color color = image.color;
         color.a = 0;
         image.color = color;
+
     }
 
     public IEnumerator Enable()
@@ -39,11 +44,13 @@ public class LookMouse : MonoBehaviour
         // 마지막 값 보정
         color.a = 1f;
         image.color = color;
+
+        shooted = false;
     }
 
     private void Update()
     {
-        if (image.enabled)
+        if (image.enabled && !shooted)
         {
             lookPos = (targetIcon.position - rectTransform.position).normalized;
             rectTransform.rotation = Quaternion.Euler(0, 0, Mathf.Clamp(Mathf.Rad2Deg * Mathf.Atan2(lookPos.y, lookPos.x) - 90, -60, 60));

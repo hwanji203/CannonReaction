@@ -16,6 +16,11 @@ public class ParticleStart : MonoBehaviour
     {
         firePar.Play();
         smokePar.Play();
-        camShake.Shake(new Vector2(0,11)); // 방향과 세기 지정
+        camShake.Shake(new Vector2(0,2)); // 방향과 세기 지정
+    }
+
+    public void CAnimationEnd()
+    {
+        gameObject.SetActive(false);
     }
 }

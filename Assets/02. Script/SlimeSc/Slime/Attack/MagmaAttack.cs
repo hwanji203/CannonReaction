@@ -8,8 +8,11 @@ public class MagmaAttack : AttackToPlayer
 
         cannon = new ByMagma[3];
 
-        cannon[0] = GameObject.Find("Cannon").GetComponent<ByMagma>();
-        cannon[1] = GameObject.Find("CannonR").GetComponent<ByMagma>();
-        cannon[2] = GameObject.Find("CannonL").GetComponent<ByMagma>();
+        GameObject cannons = GameObject.Find("Cannons");
+
+        for (int i = 0; i < cannon.Length; i++)
+        {
+            cannon[i] = cannons.transform.GetChild(i).GetComponent<ByMagma>();
+        }
     }
 }

@@ -61,7 +61,7 @@ public class AttackToPlayer : MonoBehaviour
     }
     public void CheckPlayer()
     {
-        if (!!cannonEvent.IsDamaging)
+        if (!cannonEvent.IsDamaging)
         {
             for (int i = 0; i < cannon.Length; i++)
             {

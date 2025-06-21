@@ -22,13 +22,24 @@ public class CannonEvent : MonoBehaviour
 
     public bool CanShooting { get; set; } = true;
 
+    [SerializeField] private GameObject spaceUI;
     private void Awake()
     {
         ani = GetComponent<Animator>();
+
+        spaceUI.SetActive(false);
     }
 
     private void Update()
     {
+        if (!CanShooting) spaceUI.SetActive(true);
+        else spaceUI.SetActive(false);
+
+        if (Keyboard.current.spaceKey.wasPressedThisFrame && shootCoroutine == null && CanShooting)
+        {
+            IsShooting = true;
+            shootCoroutine = StartCoroutine(Shoot());
+        }
         if (Keyboard.current.spaceKey.isPressed && shootCoroutine == null && CanShooting)
         {
             IsShooting = true;

@@ -12,9 +12,12 @@ public class ExpCollect : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent<ExpEnable>(out ExpEnable exp))
         {
-            expGauge.ExpUp();
-            exp.gameObject.SetActive(false);
-            exp.PushExp();
+            if (!exp.gameObject.GetComponent<ExpMove>().FirstMove)
+            {
+                expGauge.ExpUp();
+                exp.gameObject.SetActive(false);
+                exp.PushExp();
+            }
         }
     }
 }

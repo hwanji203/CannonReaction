@@ -13,6 +13,7 @@ public class ExpGauge : MonoBehaviour
 
     [SerializeField] private RectTransform collectUI;
 
+    public double MaxValue { get; set; } = 10;
     private void Start()
     {
         ExpUpM();
@@ -35,7 +36,7 @@ public class ExpGauge : MonoBehaviour
     private void ChangeScale()
     {
         float percent = Mathf.Clamp01(((float)nowExp) / (levelUpExp - 1)); 
-        float value = Mathf.Lerp(0f, 10f, percent); 
+        float value = Mathf.Lerp(0f, (float)MaxValue, percent); 
         collectUI.localScale = new Vector3(value, value, 1);
     }
 

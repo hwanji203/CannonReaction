@@ -41,7 +41,7 @@ public class SlimeSpawnManager : MonoBehaviour
             SlimeDic.Add(slimePrefabs[i].name, slimePool);
         }
     }
-    public IEnumerator SpawnSlime(string key, float waitTime)
+    public void SpawnSlime(string key)
     {
         for (int i = 0; i < poolSize; i++)
         {
@@ -58,7 +58,6 @@ public class SlimeSpawnManager : MonoBehaviour
                 break;
             }
         }
-        yield return new WaitForSeconds(waitTime);
         diff.spawnCo = null;
     }
 }

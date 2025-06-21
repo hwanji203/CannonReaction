@@ -17,11 +17,14 @@ public class ChooseOne : MonoBehaviour
     [SerializeField] private float waitTime = 0.75f;
 
     [SerializeField] Animator[] brickAnimator;
+
+    private LookMouse lookMouse;
     private void Awake()
     {
         canvas = GetComponentInParent<Canvas>();
         animator.updateMode = AnimatorUpdateMode.UnscaledTime;
 
+        lookMouse = animator.gameObject.GetComponent<LookMouse>();
     }
 
     public void Choose()
@@ -66,6 +69,7 @@ public class ChooseOne : MonoBehaviour
     public IEnumerator WaitBullet(Animator button)
     {
         animator.SetTrigger("select");
+        lookMouse.shooted = true;
         yield return new WaitForSecondsRealtime(waitTime);
         breakBall.gameObject.SetActive(true);
         yield return new WaitForSecondsRealtime(0.75f);

@@ -8,8 +8,11 @@ public class BasicAttack : AttackToPlayer
 
         cannon = new ByBasic[3];
 
-        cannon[0] = GameObject.Find("Cannon").GetComponent<ByBasic>();
-        cannon[1] = GameObject.Find("CannonR").GetComponent<ByBasic>();
-        cannon[2] = GameObject.Find("CannonL").GetComponent<ByBasic>();
+        GameObject cannons = GameObject.Find("Cannons");
+
+        for (int i = 0; i < cannon.Length; i++)
+        {
+            cannon[i] = cannons.transform.GetChild(i).GetComponent<ByBasic>();
+        }
     }
 }

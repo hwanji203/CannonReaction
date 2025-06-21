@@ -16,12 +16,16 @@ public class SlimeClipEvent : MonoBehaviour
 
     [SerializeField] int maxSpreadExp;
 
+    [SerializeField] private int damage = 1;
+    private CastleHealthSystem castle;
+
     protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         spreadExp = FindAnyObjectByType<SpreadExp>();
         attack = GetComponent<AttackToPlayer>();
         slimeAnimation = GetComponent<SlimeAnimation>();
+        castle = FindAnyObjectByType<CastleHealthSystem>();
     }
 
     protected virtual void OnEnable()
@@ -42,6 +46,10 @@ public class SlimeClipEvent : MonoBehaviour
 
     public void CAttackTiming()
     {
+        if (CastleAttack)
+        {
+            GiveDamage();
+        }
         attack.CheckPlayer();
     }
     public void CAttackEnd()
@@ -65,5 +73,8 @@ public class SlimeClipEvent : MonoBehaviour
     {
         rb.linearVelocity = Vector2.up * slowSpeed;
     }
-
+    public void GiveDamage()
+    {
+        castle.GetDamage(damage);
+    }
 }

@@ -18,7 +18,7 @@ public class CameraShake : MonoBehaviour
     public void Shake(Vector2 power)
     {
         // Vector3 방향 지정 + 크기 조절
-        Vector3 impulseDir = new Vector3(power.x, power.y, 0f) / 15f;
+        Vector3 impulseDir = new Vector3(power.x, power.y, 0f);
         impulse.GenerateImpulse(impulseDir);
     }
 

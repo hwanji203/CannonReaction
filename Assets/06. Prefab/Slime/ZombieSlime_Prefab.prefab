@@ -285,7 +285,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a067d3ab43371c4385f3082e1aeaa04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 4
+  startHp: 4
+  endHp: 10
+  <Hp>k__BackingField: 0
 --- !u!114 &2386313399862935749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,6 +330,7 @@ MonoBehaviour:
   middleSpeed: 2
   slowSpeed: 0.1
   maxSpreadExp: 7
+  damage: 4
 --- !u!114 &-4631585550402084426
 MonoBehaviour:
   m_ObjectHideFlags: 0

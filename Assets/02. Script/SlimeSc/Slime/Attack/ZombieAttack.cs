@@ -9,9 +9,12 @@ public class ZombieAttack : AttackToPlayer
 
         cannon = new ByZombie[3];
 
-        cannon[0] = GameObject.Find("Cannon").GetComponent<ByZombie>();
-        cannon[1] = GameObject.Find("CannonR").GetComponent<ByZombie>();
-        cannon[2] = GameObject.Find("CannonL").GetComponent<ByZombie>();
+        GameObject cannons = GameObject.Find("Cannons");
+
+        for (int i = 0; i < cannon.Length; i++)
+        {
+            cannon[i] = cannons.transform.GetChild(i).GetComponent<ByZombie>();
+        }
 
         zombieRevive = GetComponent<ZombieRevive>();
     }

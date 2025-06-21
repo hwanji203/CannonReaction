@@ -15,6 +15,7 @@ public class SlimeAnimation : MonoBehaviour
 
     public bool IsAttacking { get; set; } = false;
 
+    public float KnockBackPower { get; set; } = 1;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -39,7 +40,7 @@ public class SlimeAnimation : MonoBehaviour
         if (!IsAttacking)
         {
             animator.SetTrigger(hitHash);
-            rb.linearVelocity = -Vector2.up;
+            rb.linearVelocity = -Vector2.up * KnockBackPower;
         }
     }
     public void Dead()
@@ -50,4 +51,5 @@ public class SlimeAnimation : MonoBehaviour
     {
         animator.SetTrigger(reviveHash);
     }
+
 }

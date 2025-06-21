@@ -1,10 +1,11 @@
-using UnityEngine;
+ using UnityEngine;
 
 public class LiveZone : MonoBehaviour
 {
+    public bool canWork = true;
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.TryGetComponent<Bullet>(out Bullet bullet))
+        if (canWork && collision.gameObject.TryGetComponent<Bullet>(out Bullet bullet))
         {
             bullet.gameObject.SetActive(false);
         }
