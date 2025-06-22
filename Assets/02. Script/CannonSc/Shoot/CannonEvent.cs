@@ -22,10 +22,14 @@ public class CannonEvent : MonoBehaviour
 
     public bool CanShooting { get; set; } = true;
 
+    private ShootSFX sfx;
+
     [SerializeField] private GameObject spaceUI;
     private void Awake()
     {
         ani = GetComponent<Animator>();
+
+        sfx = GetComponent<ShootSFX>();
 
         spaceUI.SetActive(false);
     }
@@ -56,6 +60,7 @@ public class CannonEvent : MonoBehaviour
     private IEnumerator Shoot()
     {
         AniPlay();
+        sfx.AudioPlay();
         yield return new WaitForSeconds(shootFirDelay);
         shootEvnet?.Invoke();
         yield return new WaitForSeconds(shootCool);

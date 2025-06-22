@@ -44,7 +44,7 @@ public class Freeze : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("PlayerFreezeZone"))
+        if (collision.gameObject.CompareTag("PlayerFreezeZone") && !cannon.IsDamaging)
         {
             StopAllCoroutines();
             StartCoroutine(StatusEffectDuration());

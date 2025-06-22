@@ -26,7 +26,7 @@ public class ExpGauge : MonoBehaviour
 
     private void ExpUpM()
     {
-        if ((float)nowExp / levelUpExp >= 1)
+        while ((float)nowExp / levelUpExp >= 1)
         {
             LevelUp();
         }

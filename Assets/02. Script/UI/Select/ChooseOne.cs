@@ -16,7 +16,7 @@ public class ChooseOne : MonoBehaviour
 
     [SerializeField] private float waitTime = 0.75f;
 
-    [SerializeField] Animator[] brickAnimator;
+    public Animator[] BrickAnimator { get; set; }
 
     private LookMouse lookMouse;
     private void Awake()
@@ -60,7 +60,7 @@ public class ChooseOne : MonoBehaviour
 
 
         StartCoroutine(WaitBullet(EventSystem.current.currentSelectedGameObject.GetComponent<Animator>()));
-        foreach (Animator button1 in brickAnimator)
+        foreach (Animator button1 in BrickAnimator)
         {
             button1.gameObject.GetComponent<Button>().interactable = false;
         }
@@ -73,7 +73,7 @@ public class ChooseOne : MonoBehaviour
         yield return new WaitForSecondsRealtime(waitTime);
         breakBall.gameObject.SetActive(true);
         yield return new WaitForSecondsRealtime(0.75f);
-        foreach (Animator ani in brickAnimator)
+        foreach (Animator ani in BrickAnimator)
         {
             if (ani != button)
             {

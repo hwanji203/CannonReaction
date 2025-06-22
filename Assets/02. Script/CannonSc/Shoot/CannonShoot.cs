@@ -17,7 +17,7 @@ public class CannonShoot : MonoBehaviour
     public float Bigger { get; set; } = 0;
     public float KnockbackPower { get; set; } = 1f;
 
-    public int BulletDamage { get; set; }
+    public int BulletDamage { get; set; } = 1;
     private void Awake()
     {
         player = GetComponent<CannonEvent>();

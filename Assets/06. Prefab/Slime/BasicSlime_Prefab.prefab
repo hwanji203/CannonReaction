@@ -297,7 +297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startHp: 2
-  endHp: 8
+  endHp: 5
   <Hp>k__BackingField: 0
 --- !u!114 &-3934045791361676592
 MonoBehaviour:
@@ -316,6 +316,7 @@ MonoBehaviour:
   slowSpeed: 0.5
   maxSpreadExp: 3
   damage: 1
+  clip: {fileID: 8300000, guid: 0d64e471bc45b024885320c48052c439, type: 3}
 --- !u!114 &3160789202533613214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,3 +330,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackArea: {fileID: 2572709498940814680}
+  clip: {fileID: 8300000, guid: 0d64e471bc45b024885320c48052c439, type: 3}

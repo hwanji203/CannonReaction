@@ -17,7 +17,7 @@ public abstract class BySlime : MonoBehaviour
     protected float coolDefault;
 
     protected CameraShake camShake;
-    private void Awake()
+    protected virtual void Awake()
     {
         camShake = FindAnyObjectByType<CameraShake>();
 

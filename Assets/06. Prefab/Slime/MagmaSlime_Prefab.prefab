@@ -316,6 +316,7 @@ MonoBehaviour:
   slowSpeed: 0.2
   maxSpreadExp: 5
   damage: 3
+  clip: {fileID: 8300000, guid: f636643beca828c43a41535d7ef8423c, type: 3}
 --- !u!114 &-759401900319247257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,3 +330,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackArea: {fileID: 2572709498940814680}
+  clip: {fileID: 8300000, guid: f636643beca828c43a41535d7ef8423c, type: 3}

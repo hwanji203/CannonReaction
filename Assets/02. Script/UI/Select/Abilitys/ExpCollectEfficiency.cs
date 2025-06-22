@@ -10,10 +10,9 @@ public class ExpCollectEfficiency : BrickAbility
     {
         MaxCount = 2;
 
-        upObject = new GameObject[3];
+        upObject = new GameObject[2];
         upObject[0] = GameObject.Find("ExpCollector");
-        upObject[1] = upObject[0].transform.GetChild(0).gameObject;
-        upObject[2] = GameObject.Find("ExpCollecterUI");
+        upObject[1] = GameObject.Find("ExpCollecterUI");
 
         gauge = FindAnyObjectByType<ExpGauge>();
     }
@@ -21,7 +20,6 @@ public class ExpCollectEfficiency : BrickAbility
     {
         CountPlus();
 
-        gauge.MaxValue *= upValue;
         UpScale(upValue);
     }
 

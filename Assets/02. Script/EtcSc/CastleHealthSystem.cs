@@ -29,6 +29,8 @@ public class CastleHealthSystem : MonoBehaviour
         slider.minValue = 0;
 
         StartCoroutine(SliderMove());
+
+        GetHeal(10);
     }
 
     public void GetDamage(int damage)
@@ -42,12 +44,21 @@ public class CastleHealthSystem : MonoBehaviour
         }
         else
         {
+            slider.value = 0;
+            hpText.text = $"{0}/{MaxHp}";
             dead.DeadM();
         }
     }
     public void GetHeal(int healValue)
     {
-        Hp += healValue;
+        if (Hp + healValue >= MaxHp)
+        {
+            Hp = MaxHp;
+        }
+        else
+        {
+            Hp += healValue;
+        }
         slider.value = Hp;
         hpText.text = $"{Hp}/{MaxHp}";
     }
