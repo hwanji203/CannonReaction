@@ -13,7 +13,6 @@ public class AudioManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -29,11 +28,6 @@ public class AudioManager : MonoBehaviour
     public void PlaySFX(AudioClip adClip, float volume)
     {
         sfxSource.PlayOneShot(adClip, volume);
-    }
-
-    public void SelectSPlay(AudioClip adClip)
-    {
-        selectSource.PlayOneShot(adClip);
     }
 
     public void SelectBgm(AudioClip clip)

@@ -8,17 +8,14 @@ public class ParticleStart : MonoBehaviour
     [SerializeField] CameraShake camShake;
 
     [SerializeField] AudioClip clip;
-    private AudioManager audioM;
     private void Awake()
     {
         camShake = FindAnyObjectByType<CameraShake>();
-
-        audioM = FindAnyObjectByType<AudioManager>();
     }
 
     public void CAudio()
     {
-        audioM.SelectSPlay(clip);
+        AudioManager.Instance.PlaySFX(clip, 1);
     }
 
     public void CStartPar()

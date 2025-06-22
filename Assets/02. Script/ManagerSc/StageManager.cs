@@ -9,6 +9,7 @@ public class StageManager : MonoBehaviour
     private void Awake()
     {
         cam = FindAnyObjectByType<CameraShake>();
+        Cursor.visible = false;
     }
     private void Start()
     {

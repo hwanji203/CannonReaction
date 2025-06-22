@@ -13,6 +13,8 @@ public class ExpGauge : MonoBehaviour
 
     [SerializeField] private RectTransform collectUI;
 
+    [SerializeField] private AudioClip clip;
+
     public double MaxValue { get; set; } = 10;
     private void Start()
     {
@@ -21,6 +23,7 @@ public class ExpGauge : MonoBehaviour
     public void ExpUp()
     {
         nowExp++;
+        AudioManager.Instance.PlaySFX(clip, 1);
         ExpUpM();
     }
 

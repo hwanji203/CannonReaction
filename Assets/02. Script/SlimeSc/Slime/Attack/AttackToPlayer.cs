@@ -15,14 +15,12 @@ public class AttackToPlayer : MonoBehaviour
     protected bool isCannonIn = false;
 
     [SerializeField] protected AudioClip clip;
-    protected AudioManager audioM;
 
     protected virtual void Awake()
     {
         slimeAni = GetComponent<SlimeAnimation>();
         slimeClipEvent = GetComponent<SlimeClipEvent>();
         slimeCollider = GetComponent<Collider2D>();
-        audioM = FindAnyObjectByType<AudioManager>();
     }
 
     protected virtual void Start()
@@ -44,7 +42,7 @@ public class AttackToPlayer : MonoBehaviour
                 {
                     if (slimeCollider.bounds.Intersects(cannon[i].GetComponent<Collider2D>().bounds))
                     {
-                        audioM.PlaySFX(clip, 2f);
+                        AudioManager.Instance.PlaySFX(clip, 2f);
                         for (int j = 0; j < cannon.Length; j++)
                         {
                             cannon[j].gameObject.GetComponent<CannonEvent>().TakeDamage(cannon[j]);

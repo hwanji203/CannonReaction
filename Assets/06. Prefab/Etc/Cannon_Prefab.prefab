@@ -288,7 +288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 569fb9da5f1aac546bb6e7e95832bce3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotatePower: 200
+  <RotatePower>k__BackingField: 36
 --- !u!114 &3121299953879874558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -460,6 +460,7 @@ MonoBehaviour:
   pulseColor: {r: 0.2924527, g: 0.7449988, b: 1, a: 1}
   statusEffectDuration: 3
   recoverCount: 5
+  clip: {fileID: 8300000, guid: a9930b05abc2a9b49835c50f7f71c2ff, type: 3}
 --- !u!1 &7618705203214368592
 GameObject:
   m_ObjectHideFlags: 0

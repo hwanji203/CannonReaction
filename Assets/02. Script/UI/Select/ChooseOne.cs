@@ -7,19 +7,19 @@ using UnityEngine.UI;
 
 public class ChooseOne : MonoBehaviour
 {
-    [SerializeField] private RectTransform breakBall;
-    [SerializeField] private float offset = 10f;
+    [SerializeField] protected RectTransform breakBall;
+    [SerializeField] protected float offset = 10f;
 
-    [SerializeField] private Animator animator;
+    [SerializeField] protected Animator animator;
 
-    private Canvas canvas;
+    protected Canvas canvas;
 
-    [SerializeField] private float waitTime = 0.75f;
+    [SerializeField] protected float waitTime = 0.75f;
 
     public Animator[] BrickAnimator { get; set; }
 
-    private LookMouse lookMouse;
-    private void Awake()
+    protected LookMouse lookMouse;
+    protected virtual void Awake()
     {
         canvas = GetComponentInParent<Canvas>();
         animator.updateMode = AnimatorUpdateMode.UnscaledTime;
@@ -27,7 +27,7 @@ public class ChooseOne : MonoBehaviour
         lookMouse = animator.gameObject.GetComponent<LookMouse>();
     }
 
-    public void Choose()
+    public virtual void Choose()
     {
         if (EventSystem.current.currentSelectedGameObject == null)
         {
@@ -66,7 +66,7 @@ public class ChooseOne : MonoBehaviour
         }
     }
 
-    public IEnumerator WaitBullet(Animator button)
+    public virtual IEnumerator WaitBullet(Animator button)
     {
         animator.SetTrigger("select");
         lookMouse.shooted = true;

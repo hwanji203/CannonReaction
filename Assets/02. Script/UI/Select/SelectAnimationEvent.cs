@@ -17,13 +17,10 @@ public class SelectAnimationEvent : MonoBehaviour
 
     private RectTransform rect;
 
-    private AudioManager audioM;
     [SerializeField] private AudioClip bombClip;
 
     private void Awake()
     {
-        audioM = FindAnyObjectByType<AudioManager>();
-
         button = GetComponent<Button>();
         rect = GetComponent<RectTransform>();
         vector = rect.anchoredPosition;
@@ -51,7 +48,7 @@ public class SelectAnimationEvent : MonoBehaviour
     {
         if (IsThat)
         {
-            audioM.SelectSPlay(bombClip);
+            AudioManager.Instance.PlaySFX(bombClip, 1);
         }
     }
 

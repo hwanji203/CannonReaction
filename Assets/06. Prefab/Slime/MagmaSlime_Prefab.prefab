@@ -296,8 +296,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a067d3ab43371c4385f3082e1aeaa04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHp: 4
-  endHp: 10
+  startHp: 3
+  endHp: 8
   <Hp>k__BackingField: 0
 --- !u!114 &-3934045791361676592
 MonoBehaviour:
@@ -316,7 +316,8 @@ MonoBehaviour:
   slowSpeed: 0.2
   maxSpreadExp: 5
   damage: 3
-  clip: {fileID: 8300000, guid: f636643beca828c43a41535d7ef8423c, type: 3}
+  attackClip: {fileID: 8300000, guid: f636643beca828c43a41535d7ef8423c, type: 3}
+  deadClip: {fileID: 8300000, guid: 0d64e471bc45b024885320c48052c439, type: 3}
 --- !u!114 &-759401900319247257
 MonoBehaviour:
   m_ObjectHideFlags: 0

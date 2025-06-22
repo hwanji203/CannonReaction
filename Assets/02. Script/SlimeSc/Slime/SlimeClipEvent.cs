@@ -19,8 +19,10 @@ public class SlimeClipEvent : MonoBehaviour
     [SerializeField] private int damage = 1;
     private CastleHealthSystem castle;
 
-    [SerializeField] private AudioClip clip;
-    private AudioManager audioM;
+    [SerializeField] private AudioClip attackClip;
+    [SerializeField] private AudioClip deadClip;
+
+    private RecordSystem record;
 
     protected virtual void Awake()
     {
@@ -29,7 +31,7 @@ public class SlimeClipEvent : MonoBehaviour
         attack = GetComponent<AttackToPlayer>();
         slimeAnimation = GetComponent<SlimeAnimation>();
         castle = FindAnyObjectByType<CastleHealthSystem>();
-        audioM = FindAnyObjectByType<AudioManager>();
+        record = FindAnyObjectByType<RecordSystem>();
     }
 
     protected virtual void OnEnable()
@@ -41,16 +43,18 @@ public class SlimeClipEvent : MonoBehaviour
     public virtual void CDeadEnd()
     {
         spreadExp.Spread(transform.position, maxSpreadExp);
+        record.KillCountPlus();
         gameObject.SetActive(false);
     }
     public virtual void CDeadStart()
     {
         rb.linearVelocity = Vector2.zero;
+        AudioManager.Instance.PlaySFX(deadClip, 1);
     }
 
     public void CAudio()
     {
-        audioM.PlaySFX(clip, 2f);
+        AudioManager.Instance.PlaySFX(attackClip, 2f);
     }
 
     public void CAttackTiming()

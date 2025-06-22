@@ -15,6 +15,7 @@ public class CastleHealthSystem : MonoBehaviour
     private CameraShake cam;
 
     private CannonDead dead;
+    public bool IsEnd { get; set; } = false;
     private void Awake()
     {
         Hp = MaxHp;
@@ -35,32 +36,38 @@ public class CastleHealthSystem : MonoBehaviour
 
     public void GetDamage(int damage)
     {
-        if (damage < Hp)
+        if (!IsEnd)
         {
-            Hp -= damage;
-            slider.value = Hp;
-            hpText.text = $"{Hp}/{MaxHp}";
-            cam.Shake(new Vector2(-1, 0));
-        }
-        else
-        {
-            slider.value = 0;
-            hpText.text = $"{0}/{MaxHp}";
-            dead.DeadM();
+            if (damage < Hp)
+            {
+                Hp -= damage;
+                slider.value = Hp;
+                hpText.text = $"{Hp}/{MaxHp}";
+                cam.Shake(new Vector2(-1, 0));
+            }
+            else
+            {
+                slider.value = 0;
+                hpText.text = $"{0}/{MaxHp}";
+                dead.DeadM();
+            }
         }
     }
     public void GetHeal(int healValue)
     {
-        if (Hp + healValue >= MaxHp)
+        if (!IsEnd)
         {
-            Hp = MaxHp;
+            if (Hp + healValue >= MaxHp)
+            {
+                Hp = MaxHp;
+            }
+            else
+            {
+                Hp += healValue;
+            }
+            slider.value = Hp;
+            hpText.text = $"{Hp}/{MaxHp}";
         }
-        else
-        {
-            Hp += healValue;
-        }
-        slider.value = Hp;
-        hpText.text = $"{Hp}/{MaxHp}";
     }
 
     private IEnumerator SliderMove()

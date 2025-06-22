@@ -8,7 +8,6 @@ public class StartSelect : MonoBehaviour
 
     [SerializeField] private GameObject tarOb;
     [SerializeField] private GameObject cannonOb;
-    [SerializeField] private Image ImaOb; 
     [SerializeField] private GameObject breakOb; 
 
     [SerializeField] private GameObject selectUI;
@@ -20,10 +19,10 @@ public class StartSelect : MonoBehaviour
     private SelectManager selectMa;
 
     [SerializeField] private AudioSource audioS;
-    private AudioManager audioM;
     [SerializeField] private AudioClip selectBgm;
     [SerializeField] private AudioClip mainBgm;
 
+    public bool Selecting { get; private set; } = false;
 
     private void Awake()
     {
@@ -33,9 +32,7 @@ public class StartSelect : MonoBehaviour
 
         expGauge = FindAnyObjectByType<ExpGauge>();
 
-        selectMa = FindAnyObjectByType<SelectManager>()
-            ;
-        audioM = FindAnyObjectByType<AudioManager>();
+        selectMa = FindAnyObjectByType<SelectManager>();
     }
     private void Start()
     {
@@ -44,7 +41,7 @@ public class StartSelect : MonoBehaviour
         cannonOb.SetActive(false);
         breakOb.SetActive(false);
 
-        audioM.PlayBGM(mainBgm);
+        AudioManager.Instance.PlayBGM(mainBgm);
     }
 
     private void UISetActive( bool a)
@@ -54,9 +51,9 @@ public class StartSelect : MonoBehaviour
     }
     public void EndSelectSelectM()
     {
-        audioM.MainBgm(mainBgm);
+        Selecting = false;
 
-        ImaOb.enabled = true;
+        AudioManager.Instance.MainBgm(mainBgm);
 
         UISetActive(false);
         breakOb.SetActive(false);
@@ -65,9 +62,9 @@ public class StartSelect : MonoBehaviour
 
     private void StartSelectM()
     {
-        audioM.SelectBgm(selectBgm);
+        Selecting = true;
 
-        ImaOb.enabled = false;
+        AudioManager.Instance.SelectBgm(selectBgm);
 
         cannonOb.SetActive(true);
         UISetActive(true);

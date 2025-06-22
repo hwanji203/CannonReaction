@@ -8,6 +8,12 @@ public class CannonDead : MonoBehaviour
 
     private CannonEvent[] events;
 
+    private CastleHealthSystem castle;
+
+    private void Awake()
+    {
+        castle = FindAnyObjectByType<CastleHealthSystem>();
+    }
     private void Start()
     {
         events = new CannonEvent[3];
@@ -31,6 +37,7 @@ public class CannonDead : MonoBehaviour
 
     public void DeadM()
     {
+        castle.IsEnd = true;
         gameOverUI.SetActive(true);
         foreach (GameObject ob in expCollectors)
         {
