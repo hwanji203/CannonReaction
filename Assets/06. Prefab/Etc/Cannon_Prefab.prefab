@@ -277,9 +277,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc3b11e11d7aef440a6a4030445c9408, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reactionPower: 12.75
+  ReactionPower: 12.75
   MyGravityScale: 2
-  maxFallSpeed: -25
+  maxFallSpeed: -22
 --- !u!114 &3254876371190498949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -494,12 +494,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e87786b666079840accee1d01714be8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forcePower: 15
+  forcePower: 5
   baseColor: {r: 1, g: 1, b: 1, a: 1}
   pulseColor: {r: 0, g: 0, b: 1, a: 1}
   speed: 5
-  statusEffectDuration: 3
-  recoverCount: 8
+  statusEffectDuration: 2.5
 --- !u!114 &5043839887786399343
 MonoBehaviour:
   m_ObjectHideFlags: 0

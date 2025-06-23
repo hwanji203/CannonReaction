@@ -296,8 +296,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a067d3ab43371c4385f3082e1aeaa04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHp: 5
-  endHp: 8
+  startHp: 6
+  endHp: 10
   <Hp>k__BackingField: 0
 --- !u!114 &-3934045791361676592
 MonoBehaviour:

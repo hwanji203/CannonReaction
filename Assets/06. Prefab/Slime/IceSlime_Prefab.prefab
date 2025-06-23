@@ -314,7 +314,7 @@ MonoBehaviour:
   fastSpeed: 5
   middleSpeed: 4.5
   slowSpeed: 3
-  maxSpreadExp: 9
+  maxSpreadExp: 7
   damage: 2
   attackClip: {fileID: 8300000, guid: 49c8af6bf6bd7d449a32e8765d1299e9, type: 3}
   deadClip: {fileID: 8300000, guid: 0d64e471bc45b024885320c48052c439, type: 3}
