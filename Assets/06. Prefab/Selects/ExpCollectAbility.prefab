@@ -418,7 +418,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "EXP \uC218\uC9D1 \uD6A8\uC728\uC774 \uC99D\uAC00\uD569\uB2C8\uB2E4."
+  m_text: "EXP \uC218\uC9D1 \uBC18\uACBD\uC744 \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7b7888516f2988f438b1a179612611f6, type: 2}
   m_sharedMaterial: {fileID: -3576796702161535324, guid: 7b7888516f2988f438b1a179612611f6, type: 2}

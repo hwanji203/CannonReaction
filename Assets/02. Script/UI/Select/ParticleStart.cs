@@ -27,6 +27,6 @@ public class ParticleStart : MonoBehaviour
 
     public void CAnimationEnd()
     {
-        gameObject.SetActive(false);
+        gameObject.GetComponent<LookMouse>().Fade();
     }
 }

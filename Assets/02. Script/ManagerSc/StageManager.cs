@@ -5,11 +5,13 @@ using UnityEngine.InputSystem;
 public class StageManager : MonoBehaviour
 {
     private CameraShake cam;
+    private SettingCon con;
 
     private void Awake()
     {
         cam = FindAnyObjectByType<CameraShake>();
         Cursor.visible = false;
+        con = FindAnyObjectByType<SettingCon>();
     }
     private void Start()
     {
@@ -21,6 +23,7 @@ public class StageManager : MonoBehaviour
         if (Keyboard.current.spaceKey.wasPressedThisFrame && Time.timeScale == 0)
         {
             cam.SetTime(1);
+            con.IsFirst = false;
             enabled = false;
         }
     }

@@ -8,6 +8,8 @@ public class SettingCon : MonoBehaviour
     private StartSelect select;
 
     [SerializeField] Image image;
+
+    public bool IsFirst { get; set; } = true;
     private void Awake()
     {
         settingUI = transform.GetChild(0).gameObject;
@@ -37,7 +39,10 @@ public class SettingCon : MonoBehaviour
         {
             Cursor.visible = false;
             image.enabled = true;
-            Time.timeScale = 1;
+            if (!IsFirst)
+            {
+                Time.timeScale = 1;
+            }
         }
     }
 }

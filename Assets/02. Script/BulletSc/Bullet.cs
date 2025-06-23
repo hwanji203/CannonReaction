@@ -1,5 +1,4 @@
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 public class Bullet : MonoBehaviour
 {
@@ -9,7 +8,7 @@ public class Bullet : MonoBehaviour
 
     private Vector3 dir;
 
-    private BoxCollider2D allowedArea;
+    public BoxCollider2D AllowedArea { get; set; }
 
     public int hp = 1;
     [field: SerializeField] public int BulletDamage { get; set; } = 1;
@@ -24,9 +23,9 @@ public class Bullet : MonoBehaviour
     private void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
-        allowedArea = GameObject.Find("BulletLiveZone").GetComponent<BoxCollider2D>();
+        AllowedArea = GameObject.Find("BulletLiveZone").GetComponent<BoxCollider2D>();
         baseScale = transform.localScale;
-        bigScale = transform.localScale * 1.35f;
+        bigScale = transform.localScale * 1.75f;
 
         gameObject.SetActive(false);
 
@@ -54,7 +53,7 @@ public class Bullet : MonoBehaviour
         dir = new Vector3(Mathf.Cos(zValue * Mathf.Deg2Rad), Mathf.Sin(zValue * Mathf.Deg2Rad), 0);
         rigid.linearVelocity = dir * speed;
 
-        if (!allowedArea.OverlapPoint(transform.position))
+        if (!AllowedArea.OverlapPoint(transform.position))
         {
             gameObject.SetActive(false);
         }

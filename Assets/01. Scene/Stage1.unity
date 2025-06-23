@@ -1637,6 +1637,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6802955560267839701, guid: 359e0b6fc73f2d143be168183451940f, type: 3}
   m_PrefabInstance: {fileID: 576279201576743264}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &308754278
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 308754280}
+  - component: {fileID: 308754279}
+  m_Layer: 0
+  m_Name: TimeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &308754279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308754278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2958301b95d372b48aaff6d3ef564992, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &308754280
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308754278}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &321689054
 GameObject:
   m_ObjectHideFlags: 0
@@ -2203,8 +2247,8 @@ MonoBehaviour:
   breakOb: {fileID: 37212076}
   selectUI: {fileID: 425069731}
   audioS: {fileID: 405071767}
-  selectBgm: {fileID: 8300000, guid: 4d1634bf6ada90a44bda8041c6f41bb9, type: 3}
-  mainBgm: {fileID: 8300000, guid: ea09c6732e7f29945a708d47b7d1665b, type: 3}
+  selectBgm: {fileID: 8300000, guid: a4187d6b9f3e182428ec02435bacffaf, type: 3}
+  mainBgm: {fileID: 8300000, guid: 52ae188b56c2a324bb961673bba92a72, type: 3}
 --- !u!4 &400910434
 Transform:
   m_ObjectHideFlags: 0
@@ -3372,8 +3416,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1888885049918641919, guid: 359e0b6fc73f2d143be168183451940f, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3121299953879874558, guid: 359e0b6fc73f2d143be168183451940f, type: 3}
+      propertyPath: moreArea
+      value: 
+      objectReference: {fileID: 1944792436}
     - target: {fileID: 3121299953879874558, guid: 359e0b6fc73f2d143be168183451940f, type: 3}
       propertyPath: bulletPoolPa
       value: 
@@ -3381,7 +3429,7 @@ PrefabInstance:
     - target: {fileID: 4007297344169663759, guid: 359e0b6fc73f2d143be168183451940f, type: 3}
       propertyPath: clip
       value: 
-      objectReference: {fileID: 8300000, guid: a9930b05abc2a9b49835c50f7f71c2ff, type: 3}
+      objectReference: {fileID: 8300000, guid: 49c8af6bf6bd7d449a32e8765d1299e9, type: 3}
     - target: {fileID: 4363666452211501566, guid: 359e0b6fc73f2d143be168183451940f, type: 3}
       propertyPath: isMain
       value: 0
@@ -3463,7 +3511,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 352350927}
     m_RemovedComponents:
-    - {fileID: 1888885049918641919, guid: 359e0b6fc73f2d143be168183451940f, type: 3}
     - {fileID: 6654151471744493161, guid: 359e0b6fc73f2d143be168183451940f, type: 3}
     - {fileID: 5453355175065703297, guid: 359e0b6fc73f2d143be168183451940f, type: 3}
     m_RemovedGameObjects: []
@@ -12666,7 +12713,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -29.3}
+  m_Offset: {x: 0, y: -29.584253}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -12676,7 +12723,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 38, y: 60}
+  m_Size: {x: 38, y: 59.43149}
   m_EdgeRadius: 0
 --- !u!114 &1309583445
 MonoBehaviour:
@@ -13339,6 +13386,15 @@ MonoBehaviour:
   - {fileID: 5157872834877234318, guid: ad01e7e96cd9ca442843369cbec20e19, type: 3}
   - {fileID: 5157872834877234318, guid: 4f1869488aea6794e866c8c7d4e626d8, type: 3}
   - {fileID: 5157872834877234318, guid: d4646a771b477f440a8c11e88022f56e, type: 3}
+  - {fileID: 5157872834877234318, guid: 243b145c3bea85e49a2d0887396f9ee7, type: 3}
+  - {fileID: 5157872834877234318, guid: a59011fd3d15fee4c8ecfa3da710449b, type: 3}
+  - {fileID: 5157872834877234318, guid: 8ed68d2442af6154fa0e9322340217e1, type: 3}
+  - {fileID: 5157872834877234318, guid: 4b50e99e9c1893241abc12ec4e5bb014, type: 3}
+  - {fileID: 5157872834877234318, guid: dbd1db2a471e904429cff290471a374c, type: 3}
+  - {fileID: 5157872834877234318, guid: 2c12eaf744b876a4cb41b5dc20bfe195, type: 3}
+  - {fileID: 5157872834877234318, guid: 7d42b4dc9db2c2c44a32d9a64541ef37, type: 3}
+  - {fileID: 5157872834877234318, guid: 3e036e4453fa62843a16feba42b3c620, type: 3}
+  - {fileID: 5157872834877234318, guid: 5851552ba736d364887b96d1ff1a0b4b, type: 3}
   slimePoolPa: {fileID: 1801659168}
   spawnPoints:
   - {fileID: 858901328}
@@ -13359,7 +13415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa51da38f254e004385d284163c092ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstSpawnTime: 4
+  firstSpawnTime: 6
   lastSpawnTime: 1
   <Playtime>k__BackingField: 480
   <Difficulty>k__BackingField: 1
@@ -15725,6 +15781,7 @@ GameObject:
   - component: {fileID: 1845125102}
   - component: {fileID: 1845125104}
   - component: {fileID: 1845125103}
+  - component: {fileID: 1845125105}
   m_Layer: 5
   m_Name: GaugeUI
   m_TagString: Untagged
@@ -15789,6 +15846,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1845125101}
   m_CullTransparentMesh: 1
+--- !u!114 &1845125105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1845125101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afcf03f1c31514146bc2ae1f98076a34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1899779058
 GameObject:
   m_ObjectHideFlags: 0
@@ -16592,7 +16661,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc76ef043508e444c827ea3cb3c7c2bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canWork: 1
 --- !u!61 &1944792436
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17003,9 +17071,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97cef83953d5e5649a41f7934f93baeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelUpExp: 10
-  nextLevelPlus: 2
+  levelUpExp: 5
+  nextLevelPlus: 1
   nowExp: 0
+  maxLevelPlus: 30
   collectUI: {fileID: 1845125102}
   clip: {fileID: 8300000, guid: 0a33f6abea9e09c4d8ac933fe80fb36a, type: 3}
 --- !u!198 &2007456757 stripped
@@ -17161,8 +17230,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1888885049918641919, guid: 359e0b6fc73f2d143be168183451940f, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3121299953879874558, guid: 359e0b6fc73f2d143be168183451940f, type: 3}
+      propertyPath: moreArea
+      value: 
+      objectReference: {fileID: 1944792436}
     - target: {fileID: 3121299953879874558, guid: 359e0b6fc73f2d143be168183451940f, type: 3}
       propertyPath: bulletPoolPa
       value: 
@@ -17170,7 +17243,7 @@ PrefabInstance:
     - target: {fileID: 4007297344169663759, guid: 359e0b6fc73f2d143be168183451940f, type: 3}
       propertyPath: clip
       value: 
-      objectReference: {fileID: 8300000, guid: a9930b05abc2a9b49835c50f7f71c2ff, type: 3}
+      objectReference: {fileID: 8300000, guid: 49c8af6bf6bd7d449a32e8765d1299e9, type: 3}
     - target: {fileID: 4363666452211501566, guid: 359e0b6fc73f2d143be168183451940f, type: 3}
       propertyPath: isMain
       value: 0
@@ -17254,7 +17327,6 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 5453355175065703297, guid: 359e0b6fc73f2d143be168183451940f, type: 3}
     - {fileID: 6654151471744493161, guid: 359e0b6fc73f2d143be168183451940f, type: 3}
-    - {fileID: 1888885049918641919, guid: 359e0b6fc73f2d143be168183451940f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -17307,7 +17379,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc76ef043508e444c827ea3cb3c7c2bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canWork: 1
 --- !u!61 &2054275986
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17363,6 +17434,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 801148255}
     m_Modifications:
     - target: {fileID: 3121299953879874558, guid: 359e0b6fc73f2d143be168183451940f, type: 3}
+      propertyPath: moreArea
+      value: 
+      objectReference: {fileID: 1944792436}
+    - target: {fileID: 3121299953879874558, guid: 359e0b6fc73f2d143be168183451940f, type: 3}
       propertyPath: bulletPoolPa
       value: 
       objectReference: {fileID: 1560264995}
@@ -17370,6 +17445,14 @@ PrefabInstance:
       propertyPath: parPoolPa
       value: 
       objectReference: {fileID: 521297118}
+    - target: {fileID: 5448086031234131248, guid: 359e0b6fc73f2d143be168183451940f, type: 3}
+      propertyPath: forcePower
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5448086031234131248, guid: 359e0b6fc73f2d143be168183451940f, type: 3}
+      propertyPath: statusEffectDuration
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5453355175065703297, guid: 359e0b6fc73f2d143be168183451940f, type: 3}
       propertyPath: gameOverUI
       value: 
@@ -17461,3 +17544,4 @@ SceneRoots:
   - {fileID: 400910434}
   - {fileID: 217714646}
   - {fileID: 881226017}
+  - {fileID: 308754280}

@@ -7,6 +7,8 @@ public class ExpGauge : MonoBehaviour
     [SerializeField] private int nextLevelPlus;
     [SerializeField] private int nowExp = 0;
 
+    [SerializeField] private int maxLevelPlus;
+
     private int levelUpCount = 1;
 
     public event Action LevelUpEvent;
@@ -46,7 +48,7 @@ public class ExpGauge : MonoBehaviour
     private void LevelUp()
     {
         nowExp = 0;
-        levelUpExp += nextLevelPlus * levelUpCount;
+        levelUpExp += Mathf.Min(nextLevelPlus * levelUpCount, maxLevelPlus);
         levelUpCount++;
         LevelUpEvent?.Invoke();
     }

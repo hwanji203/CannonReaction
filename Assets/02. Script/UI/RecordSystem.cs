@@ -16,12 +16,10 @@ public class RecordSystem : MonoBehaviour
 
     private const string BEST_KILL_KEY = "BestKillCount";
     private const string BEST_TIME_KEY = "BestTime";
-
     private void Awake()
     {
         Active(false);
     }
-
     private void Active(bool b)
     {
         killRecord.enabled = b;
@@ -49,7 +47,8 @@ public class RecordSystem : MonoBehaviour
     }
     public void UpdateTime()
     {
-        nowTime = Time.time;
+        nowTime = TimeManager.Instance.GetTime();
+        Debug.Log(nowTime);
         UpdateText();
 
         if (nowTime > bestTime)

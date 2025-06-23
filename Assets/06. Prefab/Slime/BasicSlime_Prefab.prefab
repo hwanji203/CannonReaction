@@ -184,7 +184,7 @@ Animator:
   m_GameObject: {fileID: 5157872834877234318}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0ad5a90347fe279408f5890c8cf48f0d, type: 2}
+  m_Controller: {fileID: 9100000, guid: b0810ff3014e7b4439e7b91daa0430f0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -297,7 +297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startHp: 1
-  endHp: 5
+  endHp: 3
   <Hp>k__BackingField: 0
 --- !u!114 &-3934045791361676592
 MonoBehaviour:
@@ -314,7 +314,7 @@ MonoBehaviour:
   fastSpeed: 7.25
   middleSpeed: 4.5
   slowSpeed: 0.5
-  maxSpreadExp: 3
+  maxSpreadExp: 5
   damage: 1
   attackClip: {fileID: 8300000, guid: 0d64e471bc45b024885320c48052c439, type: 3}
   deadClip: {fileID: 8300000, guid: 0d64e471bc45b024885320c48052c439, type: 3}

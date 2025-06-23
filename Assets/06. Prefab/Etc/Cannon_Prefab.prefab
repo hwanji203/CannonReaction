@@ -58,6 +58,9 @@ GameObject:
   - component: {fileID: 6654151471744493161}
   - component: {fileID: 5453355175065703297}
   - component: {fileID: 4007297344169663759}
+  - component: {fileID: 3625295867692674294}
+  - component: {fileID: 5448086031234131248}
+  - component: {fileID: 5043839887786399343}
   m_Layer: 8
   m_Name: Cannon_Prefab
   m_TagString: Cannon
@@ -274,8 +277,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc3b11e11d7aef440a6a4030445c9408, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reactionPower: 15.75
-  MyGravityScale: 2.5
+  reactionPower: 12.75
+  MyGravityScale: 2
+  maxFallSpeed: -25
 --- !u!114 &3254876371190498949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,7 +292,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 569fb9da5f1aac546bb6e7e95832bce3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <RotatePower>k__BackingField: 36
 --- !u!114 &3121299953879874558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,6 +307,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 3952705875105274765, guid: dc71cf90004fa7b4697e11e102cad6ed, type: 3}
   fireSpot: {fileID: 7561323328087325733}
   bulletPoolPa: {fileID: 0}
+  moreArea: {fileID: 0}
 --- !u!114 &4363666452211501566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,7 +382,7 @@ MonoBehaviour:
   forcePower: 21
   baseColor: {r: 1, g: 1, b: 1, a: 1}
   pulseColor: {r: 0, g: 1, b: 1, a: 1}
-  speed: 5
+  speed: 4
   statusEffectDuration: 3
   recoverCount: 4
 --- !u!114 &3921738122780335705
@@ -396,7 +400,7 @@ MonoBehaviour:
   forcePower: 17.5
   baseColor: {r: 1, g: 1, b: 1, a: 1}
   pulseColor: {r: 0, g: 1, b: 0, a: 1}
-  speed: 5
+  speed: 4
   statusEffectDuration: 3.5
 --- !u!114 &3734843262603982693
 MonoBehaviour:
@@ -413,7 +417,7 @@ MonoBehaviour:
   forcePower: 16.5
   baseColor: {r: 1, g: 1, b: 1, a: 1}
   pulseColor: {r: 1, g: 0, b: 0, a: 1}
-  speed: 5
+  speed: 8
   intervalSeconds: 0.875
   EffectCount: 3
 --- !u!114 &6654151471744493161
@@ -460,7 +464,59 @@ MonoBehaviour:
   pulseColor: {r: 0.2924527, g: 0.7449988, b: 1, a: 1}
   statusEffectDuration: 3
   recoverCount: 5
-  clip: {fileID: 8300000, guid: a9930b05abc2a9b49835c50f7f71c2ff, type: 3}
+  clip: {fileID: 8300000, guid: 49c8af6bf6bd7d449a32e8765d1299e9, type: 3}
+--- !u!114 &3625295867692674294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7020763545067162317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8991090becdf40b4197ee42b690a395c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forcePower: 15
+  baseColor: {r: 1, g: 1, b: 1, a: 1}
+  pulseColor: {r: 0.4339623, g: 0, b: 0.07825695, a: 1}
+  speed: 3
+  statusEffectDuration: 4
+--- !u!114 &5448086031234131248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7020763545067162317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e87786b666079840accee1d01714be8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forcePower: 15
+  baseColor: {r: 1, g: 1, b: 1, a: 1}
+  pulseColor: {r: 0, g: 0, b: 1, a: 1}
+  speed: 5
+  statusEffectDuration: 3
+  recoverCount: 8
+--- !u!114 &5043839887786399343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7020763545067162317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57630603f437fb5439dfc4ce2658f2fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forcePower: 3
+  baseColor: {r: 1, g: 1, b: 1, a: 1}
+  pulseColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  speed: 20
+  statusEffectDuration: 2.5
 --- !u!1 &7618705203214368592
 GameObject:
   m_ObjectHideFlags: 0

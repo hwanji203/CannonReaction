@@ -60,6 +60,9 @@ public class SelectAnimationEvent : MonoBehaviour
             {
                 par.Play();
             }
+            uiCannon.gameObject.SetActive(false);
+            uiCannon.gameObject.SetActive(true);
+            uiCannon.gameObject.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
             StartCoroutine(uiCannon.Enable());
         }
     }

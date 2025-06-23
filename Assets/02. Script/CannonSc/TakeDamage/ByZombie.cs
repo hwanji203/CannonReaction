@@ -26,14 +26,15 @@ public class ByZombie : BySlime
                 nowRecoverCount++;
                 if (nowRecoverCount >= recoverCount)
                 {
-                    Recover();
                     nowRecoverCount = 0;
+                    Recover();
                 }
             }
         }
     }
     private IEnumerator StatusEffectDuration()
     {
+        nowRecoverCount = 0;
         cannon.CanShooting = false;
         statusEffect = true;
         yield return new WaitForSeconds(statusEffectDuration);

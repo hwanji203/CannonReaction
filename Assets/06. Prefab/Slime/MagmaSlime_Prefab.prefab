@@ -297,7 +297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startHp: 3
-  endHp: 8
+  endHp: 4
   <Hp>k__BackingField: 0
 --- !u!114 &-3934045791361676592
 MonoBehaviour:
@@ -314,8 +314,8 @@ MonoBehaviour:
   fastSpeed: 5.5
   middleSpeed: 3.5
   slowSpeed: 0.2
-  maxSpreadExp: 5
-  damage: 3
+  maxSpreadExp: 8
+  damage: 2
   attackClip: {fileID: 8300000, guid: f636643beca828c43a41535d7ef8423c, type: 3}
   deadClip: {fileID: 8300000, guid: 0d64e471bc45b024885320c48052c439, type: 3}
 --- !u!114 &-759401900319247257
