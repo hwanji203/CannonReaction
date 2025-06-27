@@ -27,11 +27,5 @@ public class TextAlphaPulse : MonoBehaviour
         Color newColor = originalColor;
         newColor.a = alpha;
         targetText.color = newColor;
-
-        if (Keyboard.current.spaceKey.wasPressedThisFrame)
-        {
-            int currentIndex = SceneManager.GetActiveScene().buildIndex;
-            SceneManager.LoadScene(currentIndex + 1);
-        }
     }
 }

@@ -48,8 +48,16 @@ public class ExpGauge : MonoBehaviour
     private void LevelUp()
     {
         nowExp = 0;
-        levelUpExp += Mathf.Min(nextLevelPlus * levelUpCount, maxLevelPlus);
-        levelUpCount++;
+        levelUpExp += Mathf.Min(nextLevelPlus * levelUpCount);
+        if (levelUpExp >= maxLevelPlus)
+        {
+            levelUpExp = maxLevelPlus;
+        }
+        else
+        {
+            levelUpCount++;
+
+        }
         LevelUpEvent?.Invoke();
     }
 }

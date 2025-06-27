@@ -41,6 +41,7 @@ public class ZombieAttack : AttackToPlayer
             {
                 if (collision.gameObject.CompareTag("Cannon"))
                 {
+                    Debug.Log("플레이어한테 맞아서 ");
                     isCannonIn = true;
                     slimeClipEvent.CastleAttack = false;
                     slimeAni.Attack();

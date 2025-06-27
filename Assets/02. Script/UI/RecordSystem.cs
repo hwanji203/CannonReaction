@@ -48,7 +48,6 @@ public class RecordSystem : MonoBehaviour
     public void UpdateTime()
     {
         nowTime = TimeManager.Instance.GetTime();
-        Debug.Log(nowTime);
         UpdateText();
 
         if (nowTime > bestTime)
