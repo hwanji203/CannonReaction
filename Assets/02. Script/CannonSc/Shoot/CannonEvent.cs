@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,6 +7,8 @@ public class CannonEvent : MonoBehaviour
 {
     public event Action shootEvnet;
     public event Action<BySlime> TakeDamageEvent;
+
+    public Rigidbody2D Rb { get; set; }
 
     [SerializeField] private float shootFirDelay = 0.3f; // ¼±µô
     [field : SerializeField] public float shootCool { get; set; } = 0.3f; // ÄðÅ¸ÀÓ
@@ -22,12 +23,21 @@ public class CannonEvent : MonoBehaviour
 
     public bool CanShooting { get; set; } = true;
 
+    private ShootSFX sfx;
+
     [SerializeField] private GameObject spaceUI;
+
+    public bool Deviled { get; set; } = false;
+    public bool Ilaced { get; set; } = false;
     private void Awake()
     {
         ani = GetComponent<Animator>();
 
+        sfx = GetComponent<ShootSFX>();
+
         spaceUI.SetActive(false);
+
+        Rb = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
@@ -35,12 +45,12 @@ public class CannonEvent : MonoBehaviour
         if (!CanShooting) spaceUI.SetActive(true);
         else spaceUI.SetActive(false);
 
-        if (Keyboard.current.spaceKey.wasPressedThisFrame && shootCoroutine == null && CanShooting)
+        if (Keyboard.current.spaceKey.wasPressedThisFrame && shootCoroutine == null && CanShooting && !Ilaced)
         {
             IsShooting = true;
             shootCoroutine = StartCoroutine(Shoot());
         }
-        if (Keyboard.current.spaceKey.isPressed && shootCoroutine == null && CanShooting)
+        if (Keyboard.current.spaceKey.isPressed && shootCoroutine == null && CanShooting && !Ilaced)
         {
             IsShooting = true;
             shootCoroutine = StartCoroutine(Shoot());
@@ -55,7 +65,12 @@ public class CannonEvent : MonoBehaviour
     }
     private IEnumerator Shoot()
     {
+        if (Deviled)
+        {
+            transform.Rotate(new Vector3(0, 0, UnityEngine.Random.Range(-45, 45)));
+        }
         AniPlay();
+        sfx.AudioPlay();
         yield return new WaitForSeconds(shootFirDelay);
         shootEvnet?.Invoke();
         yield return new WaitForSeconds(shootCool);

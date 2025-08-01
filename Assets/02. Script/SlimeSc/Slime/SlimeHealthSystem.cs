@@ -39,7 +39,7 @@ public class SlimeHealthSystem : MonoBehaviour
 
     public void ResetHP()
     {
-        float t = Mathf.Clamp01(Time.time / diff.Playtime);
+        float t = Mathf.Min(TimeManager.Instance.GetTime() / diff.Playtime, 1f);
         maxHealth = Mathf.RoundToInt(Mathf.Lerp(startHp, endHp, t));
         Hp = maxHealth;
     }

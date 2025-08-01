@@ -17,7 +17,7 @@ public abstract class BySlime : MonoBehaviour
     protected float coolDefault;
 
     protected CameraShake camShake;
-    private void Awake()
+    protected virtual void Awake()
     {
         camShake = FindAnyObjectByType<CameraShake>();
 
@@ -47,7 +47,7 @@ public abstract class BySlime : MonoBehaviour
         rb.linearVelocity = Vector2.zero;
         rb.AddForce(dir * forcePower, ForceMode2D.Impulse);
     }
-    protected void Recover()
+    public void Recover()
     {
         MyRecover();
         statusEffect = false;

@@ -1,4 +1,3 @@
-using UnityEditor.Profiling.Memory.Experimental;
 using UnityEngine;
 
 public class AttackToPlayer : MonoBehaviour
@@ -13,6 +12,9 @@ public class AttackToPlayer : MonoBehaviour
     protected Collider2D slimeCollider;
 
     protected bool isCannonIn = false;
+
+    [SerializeField] protected AudioClip clip;
+
     protected virtual void Awake()
     {
         slimeAni = GetComponent<SlimeAnimation>();
@@ -39,6 +41,7 @@ public class AttackToPlayer : MonoBehaviour
                 {
                     if (slimeCollider.bounds.Intersects(cannon[i].GetComponent<Collider2D>().bounds))
                     {
+                        AudioManager.Instance.PlaySFX(clip, 3f);
                         for (int j = 0; j < cannon.Length; j++)
                         {
                             cannon[j].gameObject.GetComponent<CannonEvent>().TakeDamage(cannon[j]);

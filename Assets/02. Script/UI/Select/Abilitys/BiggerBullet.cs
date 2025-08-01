@@ -2,15 +2,18 @@ using UnityEngine;
 
 public class BiggerBullet : BrickAbility
 {
-    private CannonShoot cannon;
+    GameObject cannons;
     private void Awake()
     {
         MaxCount = int.MaxValue;
-
-        cannon = FindAnyObjectByType<CannonShoot>();
+        cannons = GameObject.Find("Cannons");
     }
     public override void Ability()
     {
-        cannon.Bigger += (1 - cannon.Bigger) / 3;
+        for (int i = 0; i < 3; i++)
+        {
+            cannons.transform.GetChild(i).GetComponent<CannonShoot>().Bigger += 
+                (1 - cannons.transform.GetChild(i).GetComponent<CannonShoot>().Bigger) / 3;
+        }
     }
 }

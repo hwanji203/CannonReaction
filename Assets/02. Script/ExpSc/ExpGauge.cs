@@ -7,11 +7,15 @@ public class ExpGauge : MonoBehaviour
     [SerializeField] private int nextLevelPlus;
     [SerializeField] private int nowExp = 0;
 
+    [SerializeField] private int maxLevelPlus;
+
     private int levelUpCount = 1;
 
     public event Action LevelUpEvent;
 
     [SerializeField] private RectTransform collectUI;
+
+    [SerializeField] private AudioClip clip;
 
     public double MaxValue { get; set; } = 10;
     private void Start()
@@ -21,12 +25,13 @@ public class ExpGauge : MonoBehaviour
     public void ExpUp()
     {
         nowExp++;
+        AudioManager.Instance.PlaySFX(clip, 1);
         ExpUpM();
     }
 
     private void ExpUpM()
     {
-        if ((float)nowExp / levelUpExp >= 1)
+        while ((float)nowExp / levelUpExp >= 1)
         {
             LevelUp();
         }
@@ -43,8 +48,16 @@ public class ExpGauge : MonoBehaviour
     private void LevelUp()
     {
         nowExp = 0;
-        levelUpExp += nextLevelPlus * levelUpCount;
-        levelUpCount++;
+        levelUpExp += Mathf.Min(nextLevelPlus * levelUpCount);
+        if (levelUpExp >= maxLevelPlus)
+        {
+            levelUpExp = maxLevelPlus;
+        }
+        else
+        {
+            levelUpCount++;
+
+        }
         LevelUpEvent?.Invoke();
     }
 }

@@ -5,6 +5,7 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance;
 
     [SerializeField] private AudioSource bgmSource;
+    [SerializeField] private AudioSource selectSource;
     [SerializeField] private AudioSource sfxSource;
 
     private void Awake()
@@ -12,7 +13,6 @@ public class AudioManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -22,11 +22,23 @@ public class AudioManager : MonoBehaviour
     public void PlayBGM(AudioClip adClip)
     {
         bgmSource.clip = adClip;
-        sfxSource.Play();
+        bgmSource.Play();
     }
 
-    public void PlaySFX(AudioClip adClip)
+    public void PlaySFX(AudioClip adClip, float volume)
     {
-        sfxSource.PlayOneShot(adClip);
+        sfxSource.PlayOneShot(adClip, volume);
+    }
+
+    public void SelectBgm(AudioClip clip)
+    {
+        bgmSource.Pause();
+        selectSource.clip = clip;
+        selectSource.Play();
+    }
+    public void MainBgm(AudioClip clip)
+    {
+        bgmSource.UnPause();
+        selectSource.Stop();
     }
 }

@@ -40,8 +40,14 @@ public class SlimeAnimation : MonoBehaviour
         if (!IsAttacking)
         {
             animator.SetTrigger(hitHash);
-            rb.linearVelocity = -Vector2.up * KnockBackPower;
+            KnockBack();
         }
+    }
+
+    public void KnockBack()
+    {
+        rb.linearVelocity = -Vector2.up * KnockBackPower;
+
     }
     public void Dead()
     {

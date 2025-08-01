@@ -28,11 +28,25 @@ public class LookMouse : MonoBehaviour
         color.a = 0;
         image.color = color;
 
+        GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
+    }
+
+    public void Fade()
+    {
+        Color color = image.color;
+        color.a = 0;
+        image.color = color;
     }
 
     public IEnumerator Enable()
     {
+        shooted = false;
+
         Color color = image.color;
+        color.a = 0;
+        image.color = color;
+
+        color = image.color;
 
         while (color.a < 1f)
         {
@@ -50,7 +64,7 @@ public class LookMouse : MonoBehaviour
 
     private void Update()
     {
-        if (image.enabled && !shooted)
+        if (!shooted)
         {
             lookPos = (targetIcon.position - rectTransform.position).normalized;
             rectTransform.rotation = Quaternion.Euler(0, 0, Mathf.Clamp(Mathf.Rad2Deg * Mathf.Atan2(lookPos.y, lookPos.x) - 90, -60, 60));

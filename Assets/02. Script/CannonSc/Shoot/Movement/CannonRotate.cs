@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class CannonRotate : MonoBehaviour
 {
-    [SerializeField] private float rotatePower = 0.8f;
+    public float RotatePower { get; set; } = 0.8f;
     private float moveX;
 
     public void OnMove(InputValue value)
@@ -15,6 +15,6 @@ public class CannonRotate : MonoBehaviour
 
     private void Update()
     {
-        transform.Rotate(0, 0, moveX * rotatePower * Time.deltaTime);
+        transform.Rotate(0, 0, moveX * RotatePower * 50 * Time.deltaTime);
     }
 }

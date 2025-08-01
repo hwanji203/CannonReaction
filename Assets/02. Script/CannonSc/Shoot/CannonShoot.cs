@@ -16,8 +16,10 @@ public class CannonShoot : MonoBehaviour
     private bool boreSlime = false;
     public float Bigger { get; set; } = 0;
     public float KnockbackPower { get; set; } = 1f;
+    public int BulletDamage { get; set; } = 1;
+    public bool CanWarp { get; set; } = false;
 
-    public int BulletDamage { get; set; }
+    [SerializeField] BoxCollider2D moreArea;
     private void Awake()
     {
         player = GetComponent<CannonEvent>();
@@ -90,6 +92,10 @@ public class CannonShoot : MonoBehaviour
         else
         {
             bulletSc.Bigger = false;
+        }
+        if (CanWarp)
+        {
+            bulletSc.AllowedArea = moreArea;
         }
         bulletSc.BulletDamage = BulletDamage;
     }

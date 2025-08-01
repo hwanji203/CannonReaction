@@ -7,20 +7,26 @@ public class ParticleStart : MonoBehaviour
 
     [SerializeField] CameraShake camShake;
 
+    [SerializeField] AudioClip clip;
     private void Awake()
     {
         camShake = FindAnyObjectByType<CameraShake>();
+    }
+
+    public void CAudio()
+    {
+        AudioManager.Instance.PlaySFX(clip, 1);
     }
 
     public void CStartPar()
     {
         firePar.Play();
         smokePar.Play();
-        camShake.Shake(new Vector2(0,2)); // 방향과 세기 지정
+        camShake.Shake(new Vector2(0,-2)); // 방향과 세기 지정
     }
 
     public void CAnimationEnd()
     {
-        gameObject.SetActive(false);
+        gameObject.GetComponent<LookMouse>().Fade();
     }
 }

@@ -29,13 +29,13 @@ public class SlimeSpawnDifficulty : MonoBehaviour
 
     private void IncreaseDifficulty()
     {
-        float t = Mathf.Clamp01(Time.time / Playtime);
+        float t = Mathf.Clamp01(TimeManager.Instance.GetTime() / Playtime);
         Difficulty = Mathf.Min((int)Mathf.Lerp(0, Keys.Length - 1, t), Keys.Length - 1);
     }
 
     private float GetTime()
     {
-        float t = Mathf.Clamp01(Time.time / Playtime);
+        float t = Mathf.Min(TimeManager.Instance.GetTime() / Playtime, 1f);
         return Mathf.Lerp(firstSpawnTime, lastSpawnTime, t);
     }
 

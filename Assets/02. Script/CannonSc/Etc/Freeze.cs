@@ -16,13 +16,14 @@ public class Freeze : MonoBehaviour
 
     private CannonEvent cannon;
 
+    [SerializeField] private AudioClip clip;
+
     private bool statusEffect = false;
     private bool inZone = false;
     private void Awake()
     {
         cannon = GetComponent<CannonEvent>();
         ren = GetComponent<SpriteRenderer>();
-        
     }
     private void Update()
     {
@@ -44,7 +45,7 @@ public class Freeze : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("PlayerFreezeZone"))
+        if (collision.gameObject.CompareTag("PlayerFreezeZone") && !cannon.IsDamaging)
         {
             StopAllCoroutines();
             StartCoroutine(StatusEffectDuration());
@@ -60,8 +61,10 @@ public class Freeze : MonoBehaviour
     }
     private IEnumerator StatusEffectDuration()
     {
+        cannon.IsDamaging = true;
         cannon.CanShooting = false;
         statusEffect = true;
+        AudioManager.Instance.PlaySFX(clip, 1);
         yield return new WaitForSeconds(statusEffectDuration);
         Recover();
     }
@@ -71,6 +74,7 @@ public class Freeze : MonoBehaviour
         statusEffect = false;
         cannon.CanShooting = true;
         ren.color = baseColor;
+        cannon.IsDamaging = false;
     }
 }
 

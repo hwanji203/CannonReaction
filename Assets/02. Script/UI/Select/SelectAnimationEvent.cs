@@ -6,21 +6,28 @@ public class SelectAnimationEvent : MonoBehaviour
 {
     [SerializeField] private ParticleSystem[] smokePars;
 
-    [SerializeField] private bool isThat = false;
+    [field : SerializeField] public bool IsThat { get; set; } = false;
 
-    [SerializeField] LookMouse uiCannon;
+    LookMouse uiCannon;
     private Button button;
 
-    public event Action EndSelect;
+    private StartSelect startSelect;
 
     private Vector3 vector;
 
     private RectTransform rect;
+
+    [SerializeField] private AudioClip bombClip;
+
     private void Awake()
     {
         button = GetComponent<Button>();
         rect = GetComponent<RectTransform>();
         vector = rect.anchoredPosition;
+
+        uiCannon = FindAnyObjectByType<LookMouse>();
+
+        startSelect = FindAnyObjectByType<StartSelect>();
     }
 
     private void OnEnable()
@@ -37,15 +44,26 @@ public class SelectAnimationEvent : MonoBehaviour
         button.interactable = false;
     }
 
+    public void CBombAd()
+    {
+        if (IsThat)
+        {
+            AudioManager.Instance.PlaySFX(bombClip, 1);
+        }
+    }
+
     public void CBomb()
     {
-        if (isThat)
+        if (IsThat)
         {
             foreach (ParticleSystem par in smokePars)
             {
                 par.Play();
-                StartCoroutine(uiCannon.Enable());
             }
+            uiCannon.gameObject.SetActive(false);
+            uiCannon.gameObject.SetActive(true);
+            uiCannon.gameObject.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
+            StartCoroutine(uiCannon.Enable());
         }
     }
 
@@ -53,18 +71,18 @@ public class SelectAnimationEvent : MonoBehaviour
     {
         rect.anchoredPosition = vector;
         gameObject.SetActive(false);        
-        if (isThat)
+        if (IsThat)
         {
-            EndSelect?.Invoke();
+            startSelect.EndSelectSelectM();
         }
     }
     public void CEndSelect1()
     {
         rect.anchoredPosition = vector;
         gameObject.SetActive(false);
-        if (isThat)
+        if (IsThat)
         {
-            EndSelect?.Invoke();
+            startSelect.EndSelectSelectM();
         }
     }
 }

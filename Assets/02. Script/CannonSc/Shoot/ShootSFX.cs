@@ -29,14 +29,13 @@ public class ShootSFX : MonoBehaviour
     void Start()
     {
         player.shootEvnet += ParPlay;
-        player.shootEvnet += AudioPlay;
     }
 
     public void AudioPlay()
     {
         if (isMain)
         {
-            AudioManager.Instance.PlaySFX(shootAdClip);
+            AudioManager.Instance.PlaySFX(shootAdClip, 1f);
         }
     }
 
